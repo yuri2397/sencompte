@@ -68,16 +68,19 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => array(
-            'driver'   => 'pgsql',
+        'pgsql' => [
+            'driver' => 'pgsql',
+            'url' => env('DATABASE_URL'),
             'host'     => $host,
             'database' => $database,
             'username' => $username,
             'password' => $password,
-            'charset'  => 'utf8',
-            'prefix'   => '',
-            'schema'   => 'public',
-        ),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
