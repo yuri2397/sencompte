@@ -32,39 +32,24 @@
                                         <h3><strong>Vous avez {{ count($profiles) }} en cours</strong>
                                         </h3>
                                     </div>
-                                    <div class="accordion-list">
-                                        <ul>
-                                            @forelse ($profiles as $profile)
-                                                <li>
-                                                    <a data-bs-toggle="collapse" class="collapse"
-                                                        data-bs-target="#accordion-list-{{ $profile->pin }}"><span>{{ $profile->number }}</span>
-                                                        Voir les informations de connexion
-                                                        <i class="bx bx-chevron-down icon-show"></i><i
-                                                            class="bx bx-chevron-up icon-close"></i></a>
-                                                    <div id="accordion-list-{{ $profile->pin }}" class="collapse show"
-                                                        data-bs-parent=".accordion-list">
-                                                        <ul class="mt-3">
-                                                            <li>
-                                                                Adresse email : <strong
-                                                                    class="badge bg-success">{{ $profile->account->email }}</strong>
-                                                            </li>
-                                                            <li>Mot de passe du compte : <strong
-                                                                    class="badge bg-warning">{{ $profile->account->password }}</strong>
-                                                            </li>
-                                                            <li>Numéro de profile : <strong
-                                                                    class="badge bg-primary">{{ $profile->number }}</strong>
-                                                            </li>
-                                                            <li>Code pin : <strong
-                                                                    class="badge bg-danger">{{ $profile->pin }}</strong>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                            @empty
-                                                <p>Ajouter abonnement</p>
-                                            @endforelse
-                                        </ul>
-                                    </div>
+
+                                    <ul class="row align-items-center justify-content-center my-2">
+                                        @forelse ($profiles as $profile)
+                                        <div class="card shadow col-md-3 m-2">
+                                            <img src="assets/img/netflix.png" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                              <h5 class="card-title">Netflix Premium HD</h5>
+                                              <p class="card-text">Date d'expiration <strong class="text-danger" >{{ date('d-m-Y', strtotime($profile->date_end)); }}</strong></p>
+                                              <div class="text-center mt-2">
+                                                <a type="button" href="{{ route('profile.show', ['id' => $profile->id] )}}" role="button"
+                                                class="shadow btn-get-started scrollto">Voir plus</a>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        @empty
+                                            <p>Ajouter abonnement</p>
+                                        @endforelse
+                                    </ul>
                                 @else
                                     <div class="accordion-list">
                                         <div data-aos="zoom-in" data-aos-delay="100">

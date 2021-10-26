@@ -11,6 +11,7 @@ Route::get('/', function () {
 })->name("welcome");
 
 Route::get('profile',[ClientController::class, 'home'])->middleware("auth:client")->name("profile");
+Route::get('profile/{id}',[ClientController::class, 'show'])->middleware("auth:client")->name("profile.show");
 
 Route::get('login', [LoginController::class, 'loginForm'])->middleware("guest")->name("loginForm");
 Route::get('register',[RegisterController::class, 'registerForm'])->middleware("guest")->name("registerForm");
