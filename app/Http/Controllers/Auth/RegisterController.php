@@ -2,24 +2,44 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use MercurySeries\Flashy\Flashy;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
     public function __contruct()
     {
-        $this->middleware("guest");
+        $this->middleware('guest');
+        $this->middleware('guest:admin');
+        $this->middleware('guest:client');
     }
 
-    public function registerForm()
+    public function showAdminRegisterForm()
     {
-        return view("auth.register");
+        return view('auth.register', ['url' => 'admin']);
     }
 
-    public function register(Request $request)
+    public function showClientRegisterForm()
+    {
+        return view('auth.register', ['url' => 'client']);
+    }
+
+    protected function createAdmin(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $admin = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/admin');
+    }
+
+    protected function createWriter(Request $request)
     {
         $request->validate([
             'first_name' => ['required', 'min:2', 'string'],
@@ -37,15 +57,6 @@ class RegisterController extends Controller
         $client->password = bcrypt($request->password);
         $client->save();
 
-        session(['user_email' => $client->email, 'user_id' => $client->id]);
-        $request->session()->regenerate();
-        Flashy::success('Bienvenue', $client->first_name . ' ' . $client->last_name);
-
-        session([
-            'first_name' => $client->first_name,
-            'last_name' => $client->last_name,
-            'email' => $client->email
-        ]);
-        return redirect()->intended('profile');
+        return redirect()->intended('login/writer');
     }
 }

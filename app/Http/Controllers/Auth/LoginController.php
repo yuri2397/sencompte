@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Models\Client;
+use App\Utils\UserAuth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -12,9 +13,11 @@ use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
+    use UserAuth;
+
     public function __construct()
     {
-        $this->middleware("guest");
+        $this->middleware('guest')->except('logout');
     }
 
     public function loginForm()
@@ -24,17 +27,22 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([
+        $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        if (Auth::guard('client')->attempt($credentials, $request->remember ?? false)) {
-            $request->session()->regenerate();
-            session(['user_email' => $credentials['email']]);
-            return redirect()->intended('profile');
-        }
+        $credentials = ['email' => $request->email, 'password' => $request->password];
 
+        if (
+            Auth::guard('client')->attempt($credentials, $request->remember ?? false)
+            || Auth::guard("admin")->attempt($credentials, $request->remember ?? false)
+        ) {
+            if (Auth::guard('admin')->check()) {
+                return redirect()->intended('/admin');
+            }
+            return redirect()->intended('/client');
+        }
         return back()->withErrors([
             'login_error' => 'Email ou mot de passe incorrecte.',
         ]);
@@ -42,12 +50,7 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
+        $request->session()->flush();
         return redirect('/login');
     }
 }

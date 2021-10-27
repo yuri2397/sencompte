@@ -47,17 +47,24 @@
             <h1 class="logo me-auto"><a href="/">Sencompte</a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="#services">Nos services</a></li>
-                    <li><a class="nav-link scrollto" href="#about">A propos</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    @if (Auth::check())
+                    @yield('nav')
+                    @auth
+                        <li><a class="nav-link scrollto" href="">PROFILE</a></li>
+                    @endauth
+                    @auth
+
                         <li>
-                            <form action="/logout" action="get">
+                            <a class="getstarted scrollto" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                {{ __('Déconnection') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
-                                <button type="submit" role="button" class="getstarted scrollto">Déconnection</button>
                             </form>
                         </li>
-                    @endif
+                    @endauth
+
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

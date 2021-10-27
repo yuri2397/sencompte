@@ -21,34 +21,43 @@
                                         @if (isset($profile))
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-md-7">
-
+                                                    <div class="row align-items-center">
+                                                        <div class="col-md-3">
+                                                            <img src="/assets/img/netflix.png" class="card-img-top" alt="...">
                                                         </div>
                                                         <div class="col-md-5">
+                                                            <h1 class="text-primary"><a>Netflix Premium HD</a></h1>
+                                                            <h4 class="mb-2 alert alert-danger">{{ $mounth }} jours avant la fin d'abonnement</h4>
+                                                            <p class="mb-1">Date d'abonnement : <b>{{ date('d-m-Y', strtotime($profile->updated_at  )) }}</b></p>
+                                                            <p class="mb-1">
+                                                                Date d'expiration :
+                                                                <b>{{ date('d-m-Y', strtotime($profile->date_end)) }}</b>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-4 align-self-start">
+                                                            <h3 class="text-primary"><a>Détails du compte</a></h3>
+
                                                             <form>
                                                                 <div class="form-group mt-3">
-                                                                    <label for="exampleInputPassword1">Numéro de
+                                                                    <label >Numéro de
                                                                         profil</label>
                                                                     <input type="text" class="form-control" disabled
-                                                                        placeholder="{{ $profile->number }}">
+                                                                    value="{{ $profile->number }}">
                                                                 </div>
                                                                 <div class="form-group my-2">
-                                                                    <label for="exampleInputEmail1">Adresse Email</label>
+                                                                    <label  >Adresse Email</label>
                                                                     <input type="text" class="form-control" disabled
-                                                                        placeholder="{{ $profile->account->email }}">
+                                                                    value="{{ $profile->account->email }}">
                                                                 </div>
                                                                 <div class="form-group my-2">
-                                                                    <label for="exampleInputPassword1">Mot de passe</label>
+                                                                    <label  >Mot de passe</label>
                                                                     <input type="text" class="form-control" disabled
-                                                                        id="exampleInputPassword1"
-                                                                        placeholder="{{ $profile->account->password }}">
+                                                                    value="{{ $profile->account->password }}">
                                                                 </div>
                                                                 <div class="form-group mt-3">
-                                                                    <label for="exampleInputPassword1">Code Pin</label>
+                                                                    <label  >Code Pin</label>
                                                                     <input type="text" class="form-control" disabled
-                                                                        id="exampleInputPassword1"
-                                                                        placeholder="{{ $profile->pin }}">
+                                                                        value="{{ $profile->pin }}">
                                                                 </div>
 
                                                             </form>

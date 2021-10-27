@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Profile;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +21,7 @@ class ClientController extends Controller
     private $secret_key;
     public function __construct()
     {
-        $this->middleware("auth");
-        $this->api_key = env('PAYTECH_API_KEY');
-        $this->secret_key = env('PAYTECH_SECRET_KEY');
+        $this->middleware(['auth:client']);
     }
 
     public function home()
@@ -38,7 +37,8 @@ class ClientController extends Controller
     public function show($id)
     {
         $profile = Profile::find($id);
-        return view('client.show-profile')->with(['profile' => $profile]);
+        $mounth = date_diff(new DateTIme($profile->date_end), new DateTime($profile->updated_at))->d;
+        return view('client.show-profile')->with(['profile' => $profile, 'mounth' => $mounth]);
     }
 
     /**
