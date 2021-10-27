@@ -18,8 +18,8 @@
                     <h2>We are team of talented designers making websites with Bootstrap</h2>
                     @if (!Auth::guard('admin')->check() && !Auth::guard('client')->check())
                         <div class="d-flex justify-content-center justify-content-lg-start">
-                            <a href="/login" class="btn-get-started scrollto">Se connecter</a>
-                            <a href="/register" class="btn-watch-video"><i class="bi bi-box-arrow-in-right"></i><span>Créer
+                            <a href="{{ route("login") }}" class="btn-get-started scrollto">Se connecter</a>
+                            <a href="{{ route("client.registerForm") }}" class="btn-watch-video"><i class="bi bi-box-arrow-in-right"></i><span>Créer
                                     votre
                                     compte</span></a>
                         </div>

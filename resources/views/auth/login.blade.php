@@ -50,7 +50,7 @@
                                     <button type="submit">Se connecter</button>
                                 </div>
                                 <div>
-                                    <a href="/register">Créer mon compte</a>
+                                    <a href="{{ route("client.registerForm") }}">Créer mon compte</a>
                                 </div>
                             </div>
                         </form>

@@ -37,6 +37,8 @@ class ClientController extends Controller
     public function show($id)
     {
         $profile = Profile::find($id);
+        if ($profile == null)
+            return back();
         $mounth = date_diff(new DateTIme($profile->date_end), new DateTime(now()))->d;
         return view('client.show-profile')->with(['profile' => $profile, 'mounth' => $mounth]);
     }
@@ -69,8 +71,8 @@ class ClientController extends Controller
                 'item_price' => $amount,
                 "currency"     => "xof",
                 "ref_command" => $ref,
-                'item_name' => $request->abonnement . ' ' .self::COMMAND_NAME,
-                'command_name' =>   $request->abonnement . ' ' .self::COMMAND_NAME,
+                'item_name' => $request->abonnement . ' ' . self::COMMAND_NAME,
+                'command_name' =>   $request->abonnement . ' ' . self::COMMAND_NAME,
                 "success_url"  =>  self::HOST . '/api/pay-success',
                 "ipn_url"      =>  self::HOST . '/api/pay-ipn',
                 "cancel_url"   =>  self::HOST . '/api/pay-cancel',

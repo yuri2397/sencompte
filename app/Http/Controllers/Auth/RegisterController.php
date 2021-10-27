@@ -13,9 +13,6 @@ class RegisterController extends Controller
 {
     public function __contruct()
     {
-        $this->middleware('guest');
-        $this->middleware('guest:admin');
-        $this->middleware('guest:client');
     }
 
     public function showAdminRegisterForm()
@@ -25,7 +22,7 @@ class RegisterController extends Controller
 
     public function showClientRegisterForm()
     {
-        return view('auth.register', ['url' => 'client']);
+        return view('auth.register',);
     }
 
     protected function createAdmin(Request $request)
@@ -57,6 +54,8 @@ class RegisterController extends Controller
         $client->password = bcrypt($request->password);
         $client->save();
 
-        return redirect()->intended('login/writer');
+        // send email
+
+        return redirect()->intended('login');
     }
 }

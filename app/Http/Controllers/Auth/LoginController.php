@@ -34,6 +34,8 @@ class LoginController extends Controller
             Auth::guard('client')->attempt($credentials, $request->remember ?? false)
             || Auth::guard("admin")->attempt($credentials, $request->remember ?? false)
         ) {
+            $request->session()->regenerate();
+
             if (Auth::guard('client')->check()) {
                 return redirect()->intended('/client');
             }

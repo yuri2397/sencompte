@@ -26,12 +26,20 @@ Route::post('login', [LoginController::class, 'login'])
 Route::post('logout', [LoginController::class, 'logout'])
     ->name("logout");
 
+Route::get('/register', [RegisterController::class, 'showClientRegisterForm'])
+    ->name("client.registerForm");
+
+Route::post('/register', [RegisterController::class, 'createClient'])
+    ->name("client.register");
+
 /**
  * ADMIN ROUTES
  */
 Route::prefix('admin')->middleware(['auth:admin', 'role:Admin'])->group(function () {
     Route::get('/', [AdminController::class, 'home'])
         ->name("admin");
+
+        Route::get('accounts', [AdminController::class, 'accountsPage'])->name('admin.accounts');
 });
 
 /**
@@ -43,13 +51,10 @@ Route::prefix('client')->middleware(['auth:client'])->group(function () {
     Route::get('/{id}', [ClientController::class, 'show'])
         ->name("client.show");
 
-    Route::get('/register', [RegisterController::class, 'showClientRegisterForm'])
-        ->withoutMiddleware('auth:client')
-        ->name("client.registerForm");
-    Route::post('/register', [RegisterController::class, 'createClient'])
-        ->withoutMiddleware('auth:client')
-        ->name("client.register");
+
 
     Route::post('/abonnement', [ClientController::class, 'abonnement'])
         ->name("client.abonnement");
 });
+
+Route::view('test', 'auth.register');
