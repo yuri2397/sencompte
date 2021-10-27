@@ -26,6 +26,7 @@
                                     <th>Adresse email</th>
                                     <th>Mot de passe</th>
                                     <th>Nombre de profils</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,6 +36,17 @@
                                         <td class="text-center">{{ $account->email }}</td>
                                         <td class="text-center">{{ $account->password }}</td>
                                         <td class="text-center">{{ count($account->profiles) }}</td>
+                                        <td class="d-flex align-items-center justify-content-center">
+                                            <a type="button" class="btn btn-primary shadow">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                            <a href="{{ route("show.account", ['id' => $account->id ]) }}" type="button" class="btn btn-warning mx-1 shadow">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a type="button" class="btn btn-danger mx-1 shadow">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -41,6 +41,7 @@ Route::prefix('admin')->middleware(['auth:admin', 'role:Admin'])->group(function
 
     Route::get('accounts', [AdminController::class, 'accountsPage'])->name('admin.accounts');
     Route::get('add-account', [AdminController::class, 'addAccountPage'])->name('add.accountForm');
+    Route::get('show-account/{id}', [AdminController::class, 'showAccount'])->name('show.account');
     Route::post('add-account', [AdminController::class, 'addAccount'])->name('add.account');
 
     Route::get('clients', [AdminController::class, 'clientsPages'])->name('clientsPage');

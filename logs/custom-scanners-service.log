@@ -8266,3 +8266,452 @@
 2021-10-27 21:37:11.733 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
 2021-10-27 21:37:11.733 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
 2021-10-27 21:37:11.734 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:04:13.099 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:04:13.100 DEBUG 657 --- [http-nio-9221-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:04:13.101 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:04:13.101 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:04:13.101 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:04:13.102 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:04:13.102 DEBUG 657 --- [http-nio-9221-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:04:13.107 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:04:13.108 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:04:13.108 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:28:30.065 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:28:30.068 DEBUG 657 --- [http-nio-9221-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:28:30.068 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:28:30.069 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:28:30.070 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:28:30.075 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:28:30.076 DEBUG 657 --- [http-nio-9221-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:28:30.105 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:28:30.106 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:28:30.107 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:29:07.731 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:29:07.732 DEBUG 657 --- [http-nio-9221-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:29:07.732 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:29:07.733 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:29:07.733 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:29:07.735 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:29:07.735 DEBUG 657 --- [http-nio-9221-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:29:07.748 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:29:07.748 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:29:07.749 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:30:10.094 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:30:10.095 DEBUG 657 --- [http-nio-9221-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:30:10.096 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:30:10.096 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:30:10.097 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:30:10.097 DEBUG 657 --- [http-nio-9221-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:30:10.098 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:30:10.183  WARN 657 --- [http-nio-9221-exec-6] c.h.a.c.service.ArticleProvider          : Aucun article trouvÃ© pour vulnNameÂ : Potential user controlled data within PHP converted to HTML
+2021-10-27 22:30:10.183  WARN 657 --- [http-nio-9221-exec-6] c.h.a.c.service.ArticleProvider          : Aucun article trouvÃ© pour vulnNameÂ : Potential user controlled data within PHP converted to HTML
+2021-10-27 22:30:10.183  WARN 657 --- [http-nio-9221-exec-6] c.h.a.c.service.ArticleProvider          : Aucun article trouvÃ© pour vulnNameÂ : Potential user controlled data within PHP converted to HTML
+2021-10-27 22:30:10.183 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:30:10.184 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[CustomScannersServiceFinding{file='admin.blade.php', lineNumber (truncated)...]
+2021-10-27 22:30:10.185 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:30:37.761 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:30:37.762 DEBUG 657 --- [http-nio-9221-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:30:37.762 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:30:37.763 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:30:37.763 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:30:37.763 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:30:37.764 DEBUG 657 --- [http-nio-9221-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:30:37.778 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:30:37.779 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:30:37.779 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:31:05.003 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:31:05.004 DEBUG 657 --- [http-nio-9221-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:31:05.004 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:31:05.005 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:31:05.005 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:31:05.007 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:31:05.007 DEBUG 657 --- [http-nio-9221-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:31:05.024 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:31:05.025 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:31:05.025 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:31:11.333 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:31:11.333 DEBUG 657 --- [http-nio-9221-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:31:11.334 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:31:11.334 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:31:11.334 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:31:11.336 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:31:11.336 DEBUG 657 --- [http-nio-9221-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:31:11.354 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:31:11.354 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:31:11.354 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:13.179 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:32:13.180 DEBUG 657 --- [http-nio-9221-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:32:13.181 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:13.181 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:32:13.181 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:32:13.182 DEBUG 657 --- [http-nio-9221-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:32:13.181 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:13.202 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:13.202 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:32:13.202 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:21.190 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:32:21.193 DEBUG 657 --- [http-nio-9221-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:32:21.193 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:32:21.193 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:21.193 DEBUG 657 --- [http-nio-9221-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:32:21.193 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:32:21.194 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:21.221 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:21.221 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:32:21.221 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:25.111 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:32:25.111 DEBUG 657 --- [http-nio-9221-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:32:25.112 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:25.112 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:32:25.112 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:25.113 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:32:25.115 DEBUG 657 --- [http-nio-9221-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:32:25.137 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:25.137 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:32:25.137 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:32.879 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:32:32.879 DEBUG 657 --- [http-nio-9221-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:32:32.881 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:32.881 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:32:32.881 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:32.884 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:32:32.885 DEBUG 657 --- [http-nio-9221-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:32:32.907 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:32.907 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:32:32.908 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:49.390 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:32:49.391 DEBUG 657 --- [http-nio-9221-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:32:49.392 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:49.392 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:32:49.392 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:49.392 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:32:49.393 DEBUG 657 --- [http-nio-9221-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:32:49.420 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:49.420 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:32:49.421 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:52.349 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:32:52.351 DEBUG 657 --- [http-nio-9221-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:32:52.355 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:52.356 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:32:52.357 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:52.354 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:32:52.359 DEBUG 657 --- [http-nio-9221-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:32:52.400 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:52.400 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:32:52.401 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:53.586 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:32:53.587 DEBUG 657 --- [http-nio-9221-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:32:53.633 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:53.633 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:32:53.633 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:32:53.634 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:32:53.634 DEBUG 657 --- [http-nio-9221-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:32:53.688 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:32:53.688 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:32:53.689 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:33:47.194 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:33:47.194 DEBUG 657 --- [http-nio-9221-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:33:47.194 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:33:47.195 DEBUG 657 --- [http-nio-9221-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:33:47.201 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:33:47.201 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:33:47.203 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:33:47.224 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:33:47.224 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:33:47.225 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:33:58.471 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:33:58.471 DEBUG 657 --- [http-nio-9221-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:33:58.472 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:33:58.472 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:33:58.473 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:33:58.473 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:33:58.474 DEBUG 657 --- [http-nio-9221-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:33:58.499 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:33:58.499 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:33:58.499 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:34:33.757 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:34:33.757 DEBUG 657 --- [http-nio-9221-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:34:33.758 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:34:33.758 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:34:33.758 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:34:33.760 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:34:33.760 DEBUG 657 --- [http-nio-9221-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:34:33.783 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:34:33.783 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:34:33.784 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:35:04.707 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:35:04.707 DEBUG 657 --- [http-nio-9221-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:35:04.708 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:35:04.708 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:35:04.708 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:35:04.709 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:35:04.710 DEBUG 657 --- [http-nio-9221-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:35:04.733 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:35:04.733 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:35:04.734 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:35:31.141 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:35:31.142 DEBUG 657 --- [http-nio-9221-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:35:31.142 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:35:31.143 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:35:31.143 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:35:31.146 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:35:31.147 DEBUG 657 --- [http-nio-9221-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:35:31.169 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:35:31.170 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:35:31.171 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:37:37.845 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:37:37.846 DEBUG 657 --- [http-nio-9221-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:37:37.846 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:37:37.847 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:37:37.848 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:37:37.848 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:37:37.849 DEBUG 657 --- [http-nio-9221-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:37:37.866 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:37:37.866 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:37:37.867 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:38:04.577 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:38:04.578 DEBUG 657 --- [http-nio-9221-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:38:04.578 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:38:04.579 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:38:04.579 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:38:04.584 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:38:04.584 DEBUG 657 --- [http-nio-9221-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:38:04.606 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:38:04.606 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:38:04.608 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:38:16.681 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:38:16.682 DEBUG 657 --- [http-nio-9221-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:38:16.682 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:38:16.682 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:38:16.683 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:38:16.683 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:38:16.683 DEBUG 657 --- [http-nio-9221-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:38:16.699 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:38:16.699 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:38:16.700 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:38:27.273 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:38:27.274 DEBUG 657 --- [http-nio-9221-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:38:27.274 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:38:27.274 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:38:27.275 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:38:27.277 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:38:27.277 DEBUG 657 --- [http-nio-9221-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:38:27.292 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:38:27.292 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:38:27.293 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:38:44.521 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:38:44.521 DEBUG 657 --- [http-nio-9221-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:38:44.522 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:38:44.522 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:38:44.523 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:38:44.527 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:38:44.528 DEBUG 657 --- [http-nio-9221-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:38:44.550 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:38:44.550 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:38:44.551 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:38:58.679 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:38:58.679 DEBUG 657 --- [http-nio-9221-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:38:58.680 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:38:58.680 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:38:58.680 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:38:58.682 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:38:58.683 DEBUG 657 --- [http-nio-9221-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:38:58.707 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:38:58.708 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:38:58.708 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:39:08.748 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:39:08.749 DEBUG 657 --- [http-nio-9221-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:39:08.749 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:39:08.749 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:39:08.749 DEBUG 657 --- [http-nio-9221-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:39:08.749 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:39:08.750 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:39:08.768 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:39:08.768 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:39:08.768 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:40:06.451 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:40:06.452 DEBUG 657 --- [http-nio-9221-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:40:06.452 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:40:06.453 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:40:06.453 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:40:06.453 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:40:06.453 DEBUG 657 --- [http-nio-9221-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:40:06.473 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:40:06.473 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:40:06.474 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:40:35.368 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:40:35.369 DEBUG 657 --- [http-nio-9221-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:40:35.369 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:40:35.369 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:40:35.370 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:40:35.372 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:40:35.373 DEBUG 657 --- [http-nio-9221-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:40:35.390 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:40:35.390 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:40:35.390 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:41:28.565 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:41:28.566 DEBUG 657 --- [http-nio-9221-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:41:28.566 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:41:28.566 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:41:28.567 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:41:28.576 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:41:28.577 DEBUG 657 --- [http-nio-9221-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:41:28.617 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:41:28.621 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:41:28.622 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:08.758 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:42:08.758 DEBUG 657 --- [http-nio-9221-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:42:08.758 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:08.759 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:42:08.759 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:08.759 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:42:08.760 DEBUG 657 --- [http-nio-9221-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:42:08.778 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:08.778 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:42:08.779 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:19.958 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:42:19.959 DEBUG 657 --- [http-nio-9221-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:42:19.959 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:19.959 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:42:19.959 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:19.960 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:42:19.960 DEBUG 657 --- [http-nio-9221-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:42:19.981 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:19.982 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:42:19.982 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:24.796 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:42:24.797 DEBUG 657 --- [http-nio-9221-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:42:24.798 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:24.798 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:42:24.799 DEBUG 657 --- [http-nio-9221-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:42:24.799 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:42:24.805 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:24.819 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:24.820 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:42:24.820 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:27.825 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:42:27.825 DEBUG 657 --- [http-nio-9221-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:42:27.826 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:27.826 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:42:27.826 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:27.827 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:42:27.827 DEBUG 657 --- [http-nio-9221-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:42:27.852 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:27.853 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:42:27.853 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:28.843 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:42:28.844 DEBUG 657 --- [http-nio-9221-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:42:28.844 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:28.846 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:42:28.846 DEBUG 657 --- [http-nio-9221-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:42:28.850 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:42:28.850 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:28.870 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:28.870 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:42:28.871 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:29.308 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:42:29.308 DEBUG 657 --- [http-nio-9221-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:42:29.308 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:29.309 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:42:29.309 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:29.309 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:42:29.309 DEBUG 657 --- [http-nio-9221-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:42:29.330 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:29.330 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:42:29.331 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:42:29.364 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:42:29.364 DEBUG 657 --- [http-nio-9221-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:42:29.365 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:42:29.365 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:42:29.365 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:43:17.418 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:43:17.419 DEBUG 657 --- [http-nio-9221-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:43:17.421 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:43:17.422 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:43:17.422 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:43:17.423 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:43:17.423 DEBUG 657 --- [http-nio-9221-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:43:17.435 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:43:17.437 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:43:17.439 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:43:18.934 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:43:18.935 DEBUG 657 --- [http-nio-9221-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:43:18.935 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:43:18.936 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:43:18.937 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:43:18.941 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:43:18.942 DEBUG 657 --- [http-nio-9221-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:43:18.962 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:43:18.962 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:43:18.963 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:44:01.059 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:44:01.059 DEBUG 657 --- [http-nio-9221-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:44:01.060 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:44:01.060 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:44:01.061 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:44:01.062 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:44:01.062 DEBUG 657 --- [http-nio-9221-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:44:01.081 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:44:01.081 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:44:01.081 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:44:28.734 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:44:28.734 DEBUG 657 --- [http-nio-9221-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:44:28.735 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:44:28.735 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:44:28.736 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:44:28.738 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:44:28.738 DEBUG 657 --- [http-nio-9221-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:44:28.759 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:44:28.759 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:44:28.760 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:44:32.480 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:44:32.481 DEBUG 657 --- [http-nio-9221-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:44:32.481 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:44:32.481 DEBUG 657 --- [http-nio-9221-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:44:32.482 DEBUG 657 --- [http-nio-9221-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:44:32.482 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:44:32.482 DEBUG 657 --- [http-nio-9221-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:44:32.500 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:44:32.500 DEBUG 657 --- [http-nio-9221-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:44:32.501 DEBUG 657 --- [http-nio-9221-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:44:40.082 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:44:40.085 DEBUG 657 --- [http-nio-9221-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:44:40.086 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:44:40.086 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:44:40.086 DEBUG 657 --- [http-nio-9221-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:44:40.087 DEBUG 657 --- [http-nio-9221-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:44:40.088 DEBUG 657 --- [http-nio-9221-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:44:40.134 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:44:40.135 DEBUG 657 --- [http-nio-9221-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:44:40.136 DEBUG 657 --- [http-nio-9221-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:45:30.529 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:45:30.530 DEBUG 657 --- [http-nio-9221-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:45:30.531 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:45:30.531 DEBUG 657 --- [http-nio-9221-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:45:30.531 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:45:30.531 DEBUG 657 --- [http-nio-9221-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:45:30.531 DEBUG 657 --- [http-nio-9221-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:45:30.551  WARN 657 --- [http-nio-9221-exec-9] c.h.a.c.service.ArticleProvider          : Aucun article trouvÃ© pour vulnNameÂ : Potential user controlled data within PHP converted to HTML
+2021-10-27 22:45:30.551 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:45:30.551 DEBUG 657 --- [http-nio-9221-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[CustomScannersServiceFinding{file='account-list.blade.php', lin (truncated)...]
+2021-10-27 22:45:30.553 DEBUG 657 --- [http-nio-9221-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:46:21.643 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:46:21.644 DEBUG 657 --- [http-nio-9221-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:46:21.645 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:46:21.645 DEBUG 657 --- [http-nio-9221-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:46:21.645 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:46:21.646 DEBUG 657 --- [http-nio-9221-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:46:21.646 DEBUG 657 --- [http-nio-9221-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:46:21.667 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:46:21.668 DEBUG 657 --- [http-nio-9221-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:46:21.668 DEBUG 657 --- [http-nio-9221-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:46:40.653 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/v1/ignore/ruleName", parameters={}
+2021-10-27 22:46:40.654 DEBUG 657 --- [http-nio-9221-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#getRuleNameIgnoreRules()
+2021-10-27 22:46:40.654 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:46:40.654 DEBUG 657 --- [http-nio-9221-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-27 22:46:40.655 DEBUG 657 --- [http-nio-9221-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-27 22:46:40.655 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/v1/scanFile", parameters={masked}
+2021-10-27 22:46:40.656 DEBUG 657 --- [http-nio-9221-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.hcl.appscan.customscannersservice.controller.CustomScannersController#runScanFile(MultipartFile, String, int[])
+2021-10-27 22:46:40.674 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-27 22:46:40.675 DEBUG 657 --- [http-nio-9221-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [CustomScannerServiceResult{findings=[], articles={}}]
+2021-10-27 22:46:40.675 DEBUG 657 --- [http-nio-9221-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

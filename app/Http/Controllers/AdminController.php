@@ -60,7 +60,7 @@ class AdminController extends Controller
         $account->password = $request->account_password;
         $account->save();
 
-        for($i = 0; $i < 5; $i++){
+        for ($i = 0; $i < 5; $i++) {
             $profile = new Profile;
             $profile->pin = rand(1000, 9999);
             $profile->account_id = $account->id;
@@ -82,6 +82,19 @@ class AdminController extends Controller
             'clients' => $clients,
             "admin" => $this->admin
         ]);
+    }
 
+    public function showAccount($id)
+    {
+        $account = Account::with("profiles")->find($id);
+        $this->admin = Auth::user();
+        if ($account) {
+            return view("admin.account-show")->with([
+                'account' => $account,
+                "admin" => $this->admin
+            ]);
+        }
+        toastr()->error('Le compte n° ' . $id . ' n \'existe pas.', "Attention");
+        return back();
     }
 }
