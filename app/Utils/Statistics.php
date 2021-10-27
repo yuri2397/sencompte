@@ -59,6 +59,7 @@ trait Statistics{
 
     private function freeProfiles($all)
     {
+        if($all == 0) return 0;
         return  count(Profile::whereClientId(null)->get()) * 100 / $all;
     }
 
