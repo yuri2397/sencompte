@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 /**
  * HOME PAGE
  */
@@ -17,6 +18,10 @@ Route::view('/', 'welcome');
 Route::get('login', [LoginController::class, 'loginForm'])
     ->middleware("guest")
     ->name("loginForm");
+
+Route::post('login', [LoginController::class, 'login'])
+    ->middleware("guest")
+    ->name("login");
 
 Route::post('logout', [LoginController::class, 'logout'])
     ->name("logout");
