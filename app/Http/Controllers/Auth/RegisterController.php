@@ -39,7 +39,7 @@ class RegisterController extends Controller
         return redirect()->intended('login/admin');
     }
 
-    protected function createWriter(Request $request)
+    protected function createClient(Request $request)
     {
         $request->validate([
             'first_name' => ['required', 'min:2', 'string'],

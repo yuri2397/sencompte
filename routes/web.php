@@ -6,42 +6,45 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+/**
+ * HOME PAGE
+ */
 Route::view('/', 'welcome');
 
-Route::get('client', [ClientController::class, 'home'])
-    ->middleware("auth.basic")
-    ->name("client");
-
-Route::get('admin', [AdminController::class, 'home'])
-    ->middleware("auth.basic")
-    ->name("admin");
-
-
-Route::get('profile/{id}', [ClientController::class, 'show'])
-    ->middleware("auth.basic")
-    ->name("profile.show");
-
+/**
+ * SHARED ROUTES
+ */
 Route::get('login', [LoginController::class, 'loginForm'])
     ->middleware("guest")
     ->name("loginForm");
 
-Route::get('register', [RegisterController::class, 'registerForm'])
-    ->middleware("guest")
-    ->name("registerForm");
-
-Route::post('login', [LoginController::class, 'login'])
-    ->middleware("guest")
-    ->name("login");
-
-Route::post('register', [RegisterController::class, 'register'])
-    ->middleware("guest")
-    ->name("register");
-
 Route::post('logout', [LoginController::class, 'logout'])
     ->name("logout");
 
-Route::post('abonnement', [ClientController::class, 'abonnement'])
-    ->middleware("auth.basic")
-    ->name("abonnement");
+/**
+ * ADMIN ROUTES
+ */
+Route::prefix('admin')->middleware(['auth:admin', 'role:admin'])->group(function () {
+    Route::get('/', [AdminController::class, 'home'])
+        ->name("admin");
+});
 
+/**
+ * CLIENT ROUTES
+ */
+Route::prefix('client')->middleware(['auth:client'])->group(function () {
+    Route::get('/', [ClientController::class, 'home'])
+        ->name("client");
+    Route::get('/{id}', [ClientController::class, 'show'])
+        ->name("client.show");
+
+    Route::get('/register', [RegisterController::class, 'showClientRegisterForm'])
+        ->withoutMiddleware('auth:client')
+        ->name("client.registerForm");
+    Route::post('/register', [RegisterController::class, 'createClient'])
+        ->withoutMiddleware('auth:client')
+        ->name("client.register");
+
+    Route::post('/abonnement', [ClientController::class, 'abonnement'])
+        ->name("client.abonnement");
+});
