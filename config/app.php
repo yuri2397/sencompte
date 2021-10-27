@@ -167,7 +167,7 @@ return [
          */
 
         Spatie\Permission\PermissionServiceProvider::class,
-        MercurySeries\Flashy\FlashyServiceProvider::class,
+        Yoeunes\Toastr\ToastrServiceProvider::class,
         /*
          * Application Service Providers...
          */

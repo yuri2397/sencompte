@@ -13,27 +13,75 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     use Statistics;
-
-    public function __contruct()
+    public $admin;
+    public function __construct()
     {
         $this->middleware(['auth:admin', 'role:Admin']);
     }
 
     public function home()
     {
-        $admin = Auth::user();
-        session(['admin' => $admin]);
+        $this->admin = Auth::user();
         return view("admin.dashboard")->with([
             "content_row" => $this->contentRow(),
-            "clients_sub" => $this->clientsSub()
+            "clients_sub" => $this->clientsSub(),
+            "admin" => $this->admin
         ]);
     }
 
     public function accountsPage()
     {
+        $this->admin = Auth::user();
         $accounts = Account::with('profiles')->get();
         return view('admin.account-list')->with([
-            'accounts' => $accounts
+            'accounts' => $accounts,
+            "admin" => $this->admin
         ]);
+    }
+
+
+    public function addAccountPage()
+    {
+        $this->admin = Auth::user();
+        return view('admin.add-account')->with([
+            "admin" => $this->admin
+        ]);
+    }
+
+    public function addAccount(Request $request)
+    {
+        $request->validate([
+            'account_email' => 'required|unique:accounts,email',
+            'account_password' => 'required|min:6'
+        ]);
+
+        $account = new Account;
+        $account->email = $request->account_email;
+        $account->password = $request->account_password;
+        $account->save();
+
+        for($i = 0; $i < 5; $i++){
+            $profile = new Profile;
+            $profile->pin = rand(1000, 9999);
+            $profile->account_id = $account->id;
+            $profile->number = $i + 1;
+            $profile->date_end = date(now());
+            $profile->client_id = null;
+            $profile->save();
+        }
+
+        toastr()->success('Nouveau compte ajouté avec succés', "Ajoute d'un compte");
+        return $this->accountsPage();
+    }
+
+    public function clientsPages()
+    {
+        $clients = Client::with('profiles')->get();
+        $this->admin = Auth::user();
+        return view('admin.clients-list')->with([
+            'clients' => $clients,
+            "admin" => $this->admin
+        ]);
+
     }
 }

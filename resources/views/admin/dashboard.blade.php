@@ -60,7 +60,7 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Profils <small class="text-danger"> (occupé)</small>
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Profils <small class="text-primary"> (dispo)</small>
                                     </div>
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-auto">
@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="progress progress-sm mr-2">
-                                                <div class="progress-bar bg-danger" role="progressbar" style="width: {{ $content_row['free_profiles'] }}%"
+                                                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ $content_row['free_profiles'] }}%"
                                                     aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
@@ -184,7 +184,6 @@
 @endsection
 
 @section('script')
-
 <!-- Page level custom scripts -->
 <script src="/js/demo/chart-area-demo.js"></script>
 <script src="/js/demo/chart-pie-demo.js"></script>

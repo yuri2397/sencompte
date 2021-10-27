@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    @toastr_css
     @yield('header')
 </head>
 
@@ -31,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-tools"></i>
                 </div>
@@ -67,7 +68,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route("admin.accounts") }}">Liste des comptes</a>
-                        <a class="collapse-item" href="/#">Nouveau compte</a>
+                        <a class="collapse-item" href="{{ route("add.accountForm") }}">Nouveau compte</a>
                     </div>
                 </div>
             </li>
@@ -102,7 +103,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Abonnements</a>
+                        <a class="collapse-item" href="{{ route("clientsPage") }}">Utilisateurs</a>
                         <a class="collapse-item" href="register.html">Reliquat</a>
                     </div>
                 </div>
@@ -294,7 +295,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ session('admin')->name }}</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $admin->name }}</span>
                             <img class="img-profile rounded-circle" src="/img/undraw_profile.svg">
                         </a>
                         <!-- Dropdown - User Information -->
@@ -378,6 +379,8 @@
     <!-- Page level plugins -->
     <script src="/vendor/chart.js/Chart.min.js"></script>
     @yield('script')
+    @toastr_js
+    @toastr_render
 </body>
 
 </html>
