@@ -41,7 +41,7 @@
                                               <h5 class="card-title">Netflix Premium HD</h5>
                                               <p class="card-text">Date d'expiration <strong class="text-danger" >{{ date('d-m-Y', strtotime($profile->date_end)); }}</strong></p>
                                               <div class="text-center mt-2">
-                                                <a type="button" href="{{ route('profile.show', ['id' => $profile->id] )}}" role="button"
+                                                <a type="button" href="{{ route('client.show', ['id' => $profile->id] )}}" role="button"
                                                 class="shadow btn-get-started scrollto">Voir plus</a>
                                               </div>
                                             </div>

@@ -16,7 +16,7 @@
                     data-aos="fade-up" data-aos-delay="200">
                     <h1>Better Solutions For Your Business</h1>
                     <h2>We are team of talented designers making websites with Bootstrap</h2>
-                    @if (!Auth::check())
+                    @if (!Auth::guard('admin')->check() && !Auth::guard('client')->check())
                         <div class="d-flex justify-content-center justify-content-lg-start">
                             <a href="/login" class="btn-get-started scrollto">Se connecter</a>
                             <a href="/register" class="btn-watch-video"><i class="bi bi-box-arrow-in-right"></i><span>Créer

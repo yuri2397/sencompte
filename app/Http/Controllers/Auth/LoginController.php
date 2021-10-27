@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
-use App\Models\Client;
 use App\Utils\UserAuth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -38,10 +34,10 @@ class LoginController extends Controller
             Auth::guard('client')->attempt($credentials, $request->remember ?? false)
             || Auth::guard("admin")->attempt($credentials, $request->remember ?? false)
         ) {
-            if (Auth::guard('admin')->check()) {
-                return redirect()->intended('/admin');
+            if (Auth::guard('client')->check()) {
+                return redirect()->intended('/client');
             }
-            return redirect()->intended('/client');
+            return redirect()->intended('/admin');
         }
         return back()->withErrors([
             'login_error' => 'Email ou mot de passe incorrecte.',
@@ -50,7 +46,8 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        $request->session()->flush();
+        Auth::guard('admin')->logout();
+        Auth::guard('client')->logout();
         return redirect('/login');
     }
 }

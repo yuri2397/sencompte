@@ -37,7 +37,7 @@ class ClientController extends Controller
     public function show($id)
     {
         $profile = Profile::find($id);
-        $mounth = date_diff(new DateTIme($profile->date_end), new DateTime($profile->updated_at))->d;
+        $mounth = date_diff(new DateTIme($profile->date_end), new DateTime(now()))->d;
         return view('client.show-profile')->with(['profile' => $profile, 'mounth' => $mounth]);
     }
 

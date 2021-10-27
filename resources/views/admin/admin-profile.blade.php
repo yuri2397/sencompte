@@ -1,1 +1,13 @@
-<h1>ADMIN PROFILE {{ $user->name }}</h1>
+@extends('layouts.app')
+
+
+@section('nav')
+
+
+
+@endsection
+
+@section('cotent')
+
+@endsection
+

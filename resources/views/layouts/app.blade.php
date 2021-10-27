@@ -27,6 +27,8 @@
     <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -44,18 +46,25 @@
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo me-auto"><a href="/">Sencompte</a></h1>
-            <nav id="navbar" class="navbar">
+            <h1 class="logo me-auto"><a href="/">{{ env('APP_NAME') }}</a></h1>
+            <nav id="navbar" class="navbar ">
                 <ul>
                     @yield('nav')
-                    @auth
-                        <li><a class="nav-link scrollto" href="">PROFILE</a></li>
-                    @endauth
-                    @auth
+                    @if(Auth::guard('admin')->check() || Auth::guard('client')->check())
+                        <li>
+                            <a class="nav-link" href="@if (Auth::guard('admin')->check())
+                                /admin
+                            @else
+                                /client
+                            @endif">
+                                <img src="assets/img/avatar.png" class="rounded avatar" alt="...">
+                            </a>
+                        </li>
 
                         <li>
-                            <a class="getstarted scrollto" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
+                            <a class="getstarted scrollto" role="button"
+                                onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
                                 {{ __('Déconnection') }}
                             </a>
 
@@ -63,7 +72,7 @@
                                 @csrf
                             </form>
                         </li>
-                    @endauth
+                    @endIf
 
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
