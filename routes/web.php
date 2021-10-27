@@ -29,7 +29,7 @@ Route::post('logout', [LoginController::class, 'logout'])
 /**
  * ADMIN ROUTES
  */
-Route::prefix('admin')->middleware(['auth:admin', 'role:admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth:admin', 'role:Admin'])->group(function () {
     Route::get('/', [AdminController::class, 'home'])
         ->name("admin");
 });
