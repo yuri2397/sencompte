@@ -40,10 +40,12 @@
                                             <a type="button" class="btn btn-primary shadow">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                            <a href="{{ route("show.account", ['id' => $account->id ]) }}" type="button" class="btn btn-warning mx-1 shadow">
+                                            <a href="{{ route('show.account', ['id' => $account->id]) }}" type="button"
+                                                class="btn btn-warning mx-1 shadow">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a type="button" class="btn btn-danger mx-1 shadow">
+                                            <a data-toggle="modal" role="button" data-target="#deleteAccountModal" data-del-account="{{ $account->id }}"
+                                                class="delete-btn btn btn-danger mx-1 shadow">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </td>
@@ -65,6 +67,30 @@
 
     </div>
 
+    <!-- Delete Account Modal-->
+    <div class="modal fade" id="deleteAccountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Supprimer le compte</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Si vous supprimer le compte, l'abonnements des clients sur ce compte seront
+                    aussi supprimés.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" onclick="event.preventDefault(); submitDeleteForm()">{{ __('Supprimer') }}</a>
+                    <form id="delete-form" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('script')
@@ -73,4 +99,5 @@
     <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <!-- Page level custom scripts -->
     <script src="/js/demo/datatables-demo.js"></script>
+    <script src="/js/app.js"></script>
 @endsection

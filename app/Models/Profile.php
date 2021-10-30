@@ -10,11 +10,15 @@ class Profile extends Model
     use HasFactory;
     protected $fillable = ['*'];
 
-    protected $with = 'account';
+    protected $with = ['account', 'client'];
 
     public function account()
     {
         return $this->belongsTo(Account::class);
+    }
+
+    public function client(){
+        return $this->belongsTo(Client::class);
     }
 
 

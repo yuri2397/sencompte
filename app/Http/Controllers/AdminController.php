@@ -97,4 +97,29 @@ class AdminController extends Controller
         toastr()->error('Le compte n° ' . $id . ' n \'existe pas.', "Attention");
         return back();
     }
+
+    public function deleteAccount($id)
+    {
+        $account = Account::with('profiles')->find($id);
+        if ($account) {
+            foreach ($account->profiles as $profile) {
+                if ($profile->client_id != null) {
+                    toastr()->error("Il y a des clients abonnés dans cet compte.", "Impossible de supprimer ce compte");
+                    return back();
+                }
+            }
+            $account->delete();
+            toastr()->success("Le compte est ses profiles sont supprimés avec succès.", "Suppression succès");
+            return back();
+        } else {
+            toastr()->error("Le compte n° '$id' n'existe pas.", "Erreur de suppression");
+            return back();
+        }
+    }
+
+
+    public function showClientProfile($id)
+    {
+        return Client::find($id);
+    }
 }

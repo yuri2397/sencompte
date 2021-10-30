@@ -43,8 +43,10 @@ Route::prefix('admin')->middleware(['auth:admin', 'role:Admin'])->group(function
     Route::get('add-account', [AdminController::class, 'addAccountPage'])->name('add.accountForm');
     Route::get('show-account/{id}', [AdminController::class, 'showAccount'])->name('show.account');
     Route::post('add-account', [AdminController::class, 'addAccount'])->name('add.account');
+    Route::post('delete-account/{id}', [AdminController::class, 'deleteAccount'])->name('delete.account');
 
     Route::get('clients', [AdminController::class, 'clientsPages'])->name('clientsPage');
+    Route::get('client-profile/{id}', [AdminController::class, 'showClientProfile'])->name('showClientProfile');
 });
 
 /**
