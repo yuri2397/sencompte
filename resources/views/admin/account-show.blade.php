@@ -23,8 +23,8 @@
                                         <li class="nav-item h5"><strong class="badge badge-info"> Pin :
                                                 {{ $profile->pin }}</strong></li>
                                         @if ($profile->client_id != null)
-                                            <li class="nav-item h5"><strong class="badge badge-danger"> Expire le
-                                                    {{ date('d-m-Y', strtotime($profile->date_end)) }}</strong></li>
+                                            <li class="nav-item h5"><strong class="badge badge-danger"> Expire dans
+                                                    <span class="date_end">{{ $profile->date_end }}</span> JOURS</strong> </li>
                                         @endif
                                         <li class="nav-item h5">
                                             @if ($profile->client_id != null)
@@ -59,4 +59,5 @@
     <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <!-- Page level custom scripts -->
     <script src="/js/demo/datatables-demo.js"></script>
+    <script src="/js/app.js"></script>
 @endsection

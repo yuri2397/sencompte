@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Utils\Utils;
 use App\Models\Client;
 use App\Models\Account;
 use App\Models\Profile;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    use Statistics;
+    use Statistics, Utils;
     public $admin;
     public function __construct()
     {
@@ -32,7 +33,11 @@ class AdminController extends Controller
     public function accountsPage()
     {
         $this->admin = Auth::user();
-        $accounts = Account::with('profiles')->get();
+        $accounts = Account::all();
+
+        collect($accounts)->map(function($account){
+            $account->profiles = $account->profiles()->whereClientId(null)->get();
+        });
         return view('admin.account-list')->with([
             'accounts' => $accounts,
             "admin" => $this->admin
@@ -71,7 +76,7 @@ class AdminController extends Controller
         }
 
         toastr()->success('Nouveau compte ajouté avec succés', "Ajoute d'un compte");
-        return $this->accountsPage();
+        return $this->showAccount($account->id);
     }
 
     public function clientsPages()
