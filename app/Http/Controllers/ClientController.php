@@ -25,8 +25,8 @@ class ClientController extends Controller
     public function __construct()
     {
         $this->middleware(['auth:client']);
-        $this->api_key = "0f57bedba6fed63592336833eaafce76dd52ae1e8a77fb739d21a4dff5a6550d";
-        $this->secret_key = "7bfcbd7742e7661da1fd4ab35dd2c8fe24541955ec9b1e0d7ae47fa959182744";
+        $this->api_key = "e48863b91a1e6edea5f95fda966c0e4bb3be1cb08f849b5873656db9d209f103";
+        $this->secret_key = "85fb1a9ccfa99b1105bc23526ef43ae3c2226031f654bfd20f28e58bc3e72b8e";
     }
 
     public function home()
