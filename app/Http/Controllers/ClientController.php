@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
-use App\Models\Profile;
 use DateTime;
+use Carbon\Carbon;
+use App\Models\Client;
+use App\Models\Payment;
+use App\Models\Profile;
+use App\Models\Payments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -14,14 +17,16 @@ class ClientController extends Controller
 {
     private const PRICE = 2000;
     const URL_BASE = "https://paytech.sn/api";
-    const COMMAND_NAME = "abonnement(s)";
-    const HOST = "https://univ-resto.herokuapp.com";
+    const COMMAND_NAME = "Abonnement Netflix";
+    const HOST = "https://sencompte.herokuapp.com/";
     const PAYTECH = "https://paytech.sn";
     private $api_key;
     private $secret_key;
     public function __construct()
     {
         $this->middleware(['auth:client']);
+        $this->api_key = "0f57bedba6fed63592336833eaafce76dd52ae1e8a77fb739d21a4dff5a6550d";
+        $this->secret_key = "7bfcbd7742e7661da1fd4ab35dd2c8fe24541955ec9b1e0d7ae47fa959182744";
     }
 
     public function home()
@@ -39,8 +44,7 @@ class ClientController extends Controller
         $profile = Profile::find($id);
         if ($profile == null)
             return back();
-        $mounth = date_diff(new DateTIme($profile->date_end), new DateTime(now()))->d;
-        return view('client.show-profile')->with(['profile' => $profile, 'mounth' => $mounth]);
+        return view('client.show-profile')->with(['profile' => $profile]);
     }
 
     /**
@@ -48,34 +52,36 @@ class ClientController extends Controller
      */
     public function abonnement(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'abonnement' => ['numeric', 'min:1', 'max:5']
-        ]);
 
         $profiles_dispo = Profile::whereClientId(null)->get();
 
-        if ($profiles_dispo && count($profiles_dispo) >= $request->abonnement) {
+        if ($profiles_dispo && count($profiles_dispo) != 0) {
             $user = Client::find(auth()->id());
+
+            DB::beginTransaction();
+                $profile = Profile::whereClientId(null)->first();
+                $profile->client_id = $user->id;
+                $profile->save();
+            DB::commit();
+
             $ref = $user->email . '_' . time();
-
-            // calcule du montant
-            $amount = $request->abonnement * static::PRICE;
-
             $customfield = json_encode([
                 'email' => $user->email,
-                'amount' => $amount,
+                'profile_id' => $profile->id,
+                'client_id' => $profile->id,
+                'amount' => static::PRICE,
                 'ref' => $ref,
             ]);
 
             $data = [
-                'item_price' => $amount,
+                'item_price' => static::PRICE,
                 "currency"     => "xof",
                 "ref_command" => $ref,
-                'item_name' => $request->abonnement . ' ' . self::COMMAND_NAME,
-                'command_name' =>   $request->abonnement . ' ' . self::COMMAND_NAME,
-                "success_url"  =>  self::HOST . '/api/pay-success',
-                "ipn_url"      =>  self::HOST . '/api/pay-ipn',
-                "cancel_url"   =>  self::HOST . '/api/pay-cancel',
+                'item_name' => static::COMMAND_NAME,
+                'command_name' => static::COMMAND_NAME,
+                "success_url"  =>  self::HOST . '/pay-success',
+                "ipn_url"      =>  self::HOST . '/pay-ipn',
+                "cancel_url"   =>  self::HOST . '/pay-cancel',
                 'env' => 'test',
                 "custom_field" =>   $customfield,
             ];
@@ -83,45 +89,50 @@ class ClientController extends Controller
         }
     }
 
-    /**
-     * ANNULATION
-     */
-    public function cancel(Request $request)
-    {
-        return view('pay-cancel');
-    }
-
-    /**
-     *
-     */
-    public function success()
-    {
-        # code...
-    }
-
-    /**
-     * IPN
-     */
     public function ipn(Request $request)
     {
         $api_key_sha256 = $request->api_key_sha256;
         $api_secret_sha256 = $request->api_secret_sha256;
 
         if (hash('sha256', $this->secret_key) === $api_secret_sha256 && hash('sha256', $this->api_key) === $api_key_sha256) {
+
+            $client_phone = $request->client_phone;
+            $via = $request->payment_method;
+            $item_price = $request->item_price;
+            $custom_field = $request->custom_field;
+
             if ($request->type_event === "sale_complete") {
 
                 DB::beginTransaction();
 
+                $profile = Profile::find($custom_field['profile_id']);
+                $profile->date_end = Carbon::now()->addMonth();
+                $profile->save();
 
+                $payment = new Payment();
+                $payment->amount = $item_price;
+                $payment->date = date(now());
+                $payment->via = $via;
+                $payment->profile_id = $custom_field['profile_id'];
+                $payment->client_id = $custom_field['client_id'];
+                $payment->phone_number = $client_phone;
+                $payment->save();
+
+                DB::commit();
+            } else if ($request->type_event == "sale_canceled") {
+                DB::beginTransaction();
+
+                $profile = Profile::find($custom_field['profile_id']);
+                $profile->date_end = null;
+                $profile->client_id = null;
+                $profile->save();
 
                 DB::commit();
             }
         }
     }
 
-    /**
-     * Requet vers PayTech
-     */
+
     private function requestPayment($data)
     {
         $ch = curl_init(self::URL_BASE . "/payment/request-payment");
@@ -143,12 +154,10 @@ class ClientController extends Controller
         $jsonResponse = json_decode($rawResponse, true);
 
         if ($jsonResponse != null && $jsonResponse['success'] === 1) {
-            return response()->json($jsonResponse, 200);
+            return redirect($jsonResponse['redirectUrl']);
         } else {
-            return response()->json([
-                "message" => "Une erreur c'est produit. Merci de réessayer plustard.",
-                "code" => 500,
-            ], 500);
+            toastr()->error("Merci de réessayer plus tart.", "Erreur de payement");
+            back();
         }
     }
 }

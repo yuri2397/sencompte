@@ -58,10 +58,10 @@ Route::prefix('client')->middleware(['auth:client'])->group(function () {
     Route::get('/{id}', [ClientController::class, 'show'])
         ->name("client.show");
 
-
-
     Route::post('/abonnement', [ClientController::class, 'abonnement'])
         ->name("client.abonnement");
 });
 
 Route::view('test', 'auth.register');
+Route::view("pay-success", 'client.pay-success');
+Route::view("pay-cancel", 'client.pay-cancel');

@@ -34,8 +34,6 @@ class LoginController extends Controller
             Auth::guard('client')->attempt($credentials, $request->remember ?? false)
             || Auth::guard("admin")->attempt($credentials, $request->remember ?? false)
         ) {
-            $request->session()->regenerate();
-
             if (Auth::guard('client')->check()) {
                 return redirect()->intended('/client');
             }
@@ -48,10 +46,9 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        if (Auth::guard('admin')->check())
-            Auth::guard('admin')->logout();
-        else
-            Auth::guard('client')->logout();
-        return redirect('/login');
+        Auth::logout();
+        Auth::guard('admin')->logout();
+        Auth::guard('client')->logout();
+        return redirect('/');
     }
 }

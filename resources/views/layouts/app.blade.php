@@ -29,9 +29,10 @@
     <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 
-
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">
+    @toastr_css
+
 </head>
 
 <body>
@@ -50,7 +51,7 @@
                             @else
                                 /client
                             @endif">
-                                <img src="assets/img/avatar.png" class="rounded avatar" alt="...">
+                                <img src="/assets/img/avatar.png" class="rounded avatar" alt="...">
                             </a>
                         </li>
 
@@ -86,7 +87,9 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
-    @include('flashy::message')
+    @yield('script')
+    @toastr_js
+    @toastr_render
 </body>
 
 </html>

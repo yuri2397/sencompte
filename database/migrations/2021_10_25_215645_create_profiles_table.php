@@ -15,7 +15,7 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->dateTime("date_end");
+            $table->dateTime("date_end")->nullable();
             $table->integer("number", false, true);
             $table->integer("pin", false, true);
 
