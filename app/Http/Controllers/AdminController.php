@@ -125,6 +125,12 @@ class AdminController extends Controller
 
     public function showClientProfile($id)
     {
-        return Client::find($id);
+        $client = Client::with('profiles')->find($id);
+        $this->admin = Auth::user();
+
+        return view("admin.show-client-profile")->with([
+            'client' => $client,
+            "admin" => $this->admin
+        ]);
     }
 }

@@ -27,6 +27,7 @@
                                     <th>Nom</th>
                                     <th>Adresse email</th>
                                     <th>Abonnements</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,6 +38,12 @@
                                         <td class="text-center">{{ $client->last_name }}</td>
                                         <td class="text-center">{{ $client->email }}</td>
                                         <td class="text-center">{{ count($client->profiles) }}</td>
+                                        <td class="text-center">
+                                            <a href="{{ route('showClientProfile', ['id' => $client->id]) }}" type="button"
+                                                class="btn btn-warning mx-1 shadow">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
