@@ -26,7 +26,7 @@
                                                             <p class="mb-1">Date d'abonnement : <b>{{ date('d-m-Y', strtotime($profile->updated_at)) }}</b></p>
                                                             <p class="mb-1">
                                                                 Date d'expiration :
-                                                                <b >{{ date('d-m-Y', strtotime($profile->date_end  )) }}</b>
+                                                                <b >{{ date('d-m-Y', strtotime($profile->date_end)) }}</b>
                                                             </p>
                                                         </div>
                                                         <div class="col-md-4 align-self-start">

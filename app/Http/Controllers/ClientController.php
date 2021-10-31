@@ -61,6 +61,7 @@ class ClientController extends Controller
             DB::beginTransaction();
                 $profile = Profile::whereClientId(null)->first();
                 $profile->client_id = $user->id;
+                $profile->date_end = Carbon::now()->addMonth();
                 $profile->save();
             DB::commit();
 
