@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Models\Payment;
 use App\Models\Profile;
 use App\Models\Payments;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,7 @@ class ClientController extends Controller
     private const PRICE = 2000;
     const URL_BASE = "https://paytech.sn/api";
     const COMMAND_NAME = "Abonnement Netflix";
-    const HOST = "https://sencompte.herokuapp.com/";
+    const HOST = "https://sencompte.sn/";
     const PAYTECH = "https://paytech.sn";
     private $api_key;
     private $secret_key;
@@ -58,18 +59,10 @@ class ClientController extends Controller
         if ($profiles_dispo && count($profiles_dispo) != 0) {
             $user = Client::find(auth()->id());
 
-            DB::beginTransaction();
-                $profile = Profile::whereClientId(null)->first();
-                $profile->client_id = $user->id;
-                $profile->date_end = Carbon::now()->addMonth();
-                $profile->save();
-            DB::commit();
-
             $ref = $user->email . '_' . time();
             $customfield = json_encode([
                 'email' => $user->email,
-                'profile_id' => $profile->id,
-                'client_id' => $profile->id,
+                'client_id' => $user->id,
                 'amount' => static::PRICE,
                 'ref' => $ref,
             ]);
@@ -101,14 +94,24 @@ class ClientController extends Controller
             $via = $request->payment_method;
             $item_price = $request->item_price;
             $custom_field = $request->custom_field;
+            $client = Client::find($custom_field['client_id']);
 
             if ($request->type_event === "sale_complete") {
 
                 DB::beginTransaction();
 
-                $profile = Profile::find($custom_field['profile_id']);
-                $profile->date_end = Carbon::now()->addMonth();
-                $profile->save();
+                $profile = Profile::whereClientId(null)->first();
+                if($profile == null){
+                    $not = new Notification;
+                    $not->date = date(now());
+                    $not->message = "Il y a eu une erreur sur la validation d'un profil pour <span class='cc_error'>" . $client->first_name . " " . $client->last_name . "</span>";
+                    $not->save();
+                }
+                else{
+                    $profile->date_end = Carbon::now()->addMonth();
+                    $profile->save();
+                }
+
 
                 $payment = new Payment();
                 $payment->amount = $item_price;
@@ -122,7 +125,6 @@ class ClientController extends Controller
                 DB::commit();
             } else if ($request->type_event == "sale_canceled") {
                 DB::beginTransaction();
-
                 $profile = Profile::find($custom_field['profile_id']);
                 $profile->date_end = null;
                 $profile->client_id = null;
