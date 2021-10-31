@@ -15,8 +15,8 @@
                     <div class="why-us section-bg">
                         <div class="row card card-body">
                             <div class="jumbotron">
-                                <h1 class="display-3 text-primary">Payement annullé</h1>
-                                <p class="lead">Votre abonnement a été payé anullé</p>
+                                <h1 class="display-3 text-danger">Payement annullé</h1>
+                                <p class="lead">Votre abonnement a été anullé</p>
                                 <hr class="my-2">
                                 <p>Merci pour votre confiance</p>
                                 @if (Auth::guard('client')->check())

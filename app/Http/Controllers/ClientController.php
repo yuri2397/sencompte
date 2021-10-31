@@ -80,9 +80,9 @@ class ClientController extends Controller
                 "ref_command" => $ref,
                 'item_name' => static::COMMAND_NAME,
                 'command_name' => static::COMMAND_NAME,
-                "success_url"  =>  self::HOST . '/pay-success',
-                "ipn_url"      =>  self::HOST . '/pay-ipn',
-                "cancel_url"   =>  self::HOST . '/pay-cancel',
+                "success_url"  =>  self::HOST . 'pay-success',
+                "ipn_url"      =>  self::HOST . 'pay-ipn',
+                "cancel_url"   =>  self::HOST . 'pay-cancel',
                 'env' => 'test',
                 "custom_field" =>   $customfield,
             ];
