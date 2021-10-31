@@ -112,7 +112,6 @@ class ClientController extends Controller
                     $profile->save();
                 }
 
-
                 $payment = new Payment();
                 $payment->amount = $item_price;
                 $payment->date = date(now());
@@ -121,14 +120,6 @@ class ClientController extends Controller
                 $payment->client_id = $custom_field['client_id'];
                 $payment->phone_number = $client_phone;
                 $payment->save();
-
-                DB::commit();
-            } else if ($request->type_event == "sale_canceled") {
-                DB::beginTransaction();
-                $profile = Profile::find($custom_field['profile_id']);
-                $profile->date_end = null;
-                $profile->client_id = null;
-                $profile->save();
 
                 DB::commit();
             }
