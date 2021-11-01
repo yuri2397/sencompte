@@ -58,7 +58,7 @@ Route::prefix('client')->middleware(['auth:client'])->group(function () {
     Route::get('/{id}', [ClientController::class, 'show'])
         ->name("client.show");
 
-    Route::post('/abonnement', [ClientController::class, 'abonnement'])
+    Route::get('/abonnement', [ClientController::class, 'abonnement'])
         ->name("client.abonnement");
 });
 

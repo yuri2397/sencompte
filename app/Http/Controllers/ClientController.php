@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use DateTime;
 use Carbon\Carbon;
 use App\Models\Client;
 use App\Models\Payment;
 use App\Models\Profile;
-use App\Models\Payments;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 
 class ClientController extends Controller
 {
@@ -30,8 +27,11 @@ class ClientController extends Controller
         $this->secret_key = "85fb1a9ccfa99b1105bc23526ef43ae3c2226031f654bfd20f28e58bc3e72b8e";
     }
 
-    public function home()
+    public function home($message = null)
     {
+        if ($message)
+            toastr()->error($message);
+
         $user = Auth::user();
         $profiles = Profile::whereClientId($user->id)->get();
         return view("client.profile")->with([
@@ -48,40 +48,7 @@ class ClientController extends Controller
         return view('client.show-profile')->with(['profile' => $profile]);
     }
 
-    /**
-     * Ajouter un nouveau abonnement
-     */
-    public function abonnement(Request $request)
-    {
 
-        $profiles_dispo = Profile::whereClientId(null)->get();
-
-        if ($profiles_dispo && count($profiles_dispo) != 0) {
-            $user = Client::find(auth()->id());
-
-            $ref = $user->email . '_' . time();
-            $customfield = json_encode([
-                'email' => $user->email,
-                'client_id' => $user->id,
-                'amount' => static::PRICE,
-                'ref' => $ref,
-            ]);
-
-            $data = [
-                'item_price' => static::PRICE,
-                "currency"     => "xof",
-                "ref_command" => $ref,
-                'item_name' => static::COMMAND_NAME,
-                'command_name' => static::COMMAND_NAME,
-                "success_url"  =>  self::HOST . 'pay-success',
-                "ipn_url"      =>  self::HOST . 'pay-ipn',
-                "cancel_url"   =>  self::HOST . 'pay-cancel',
-                'env' => 'test',
-                "custom_field" =>   $customfield,
-            ];
-            return $this->requestPayment($data);
-        }
-    }
 
     public function ipn(Request $request)
     {
@@ -101,13 +68,12 @@ class ClientController extends Controller
                 DB::beginTransaction();
 
                 $profile = Profile::whereClientId(null)->first();
-                if($profile == null){
+                if ($profile == null) {
                     $not = new Notification;
                     $not->date = date(now());
                     $not->message = "Il y a eu une erreur sur la validation d'un profil pour <span class='cc_error'>" . $client->first_name . " " . $client->last_name . "</span>";
                     $not->save();
-                }
-                else{
+                } else {
                     $profile->date_end = Carbon::now()->addMonth();
                     $profile->save();
                 }
