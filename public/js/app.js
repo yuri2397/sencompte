@@ -1,5 +1,5 @@
 var id = -1;
-let htmlCollection = document.getElementsByClassName('delete-btn');
+let htmlCollection = document.getElementsByClassName('on-click');
 let btns = [].slice.call(htmlCollection);
 btns.forEach(btn => {
     btn.onclick = function() {
@@ -26,7 +26,7 @@ function dayDiff(d1, d2) {
     d1 = d1.getTime() / 86400000;
     d2 = d2.getTime() / 86400000;
     let diff = new Number(d2 - d1).toFixed(0);
-    if (diff > 0) {
+    if (diff < 0) {
         return -diff
     }
     return diff;
@@ -39,3 +39,9 @@ function dayDiff(d1, d2) {
         e.innerHTML = this.dayDiff(new Date(e.innerHTML), new Date());
     })
 })();
+
+function submitUpdateForm() {
+    let form = document.getElementById('update-form');
+    form.action = "/admin/update-account/" + id;
+    form.submit();
+}

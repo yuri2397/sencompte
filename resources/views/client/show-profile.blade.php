@@ -32,7 +32,6 @@
                                                         <div class="col-md-4 align-self-start">
                                                             <h3 class="text-primary"><a>Détails du compte</a></h3>
 
-                                                            <form>
                                                                 <div class="form-group mt-3">
                                                                     <label >Numéro de
                                                                         profil</label>
@@ -54,18 +53,17 @@
                                                                     <input type="text" class="form-control" disabled
                                                                         value="{{ $profile->pin }}">
                                                                 </div>
-
-                                                            </form>
+                                                                <a href="{{ route("renouvellement", ['id' => $profile->hash]) }}" class="mt-3 shadow btn btn-primary btn-block">Renouvellement (+30 jours)</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         @else
                                             <div class="accordion-list">
-                                                <div data-aos="zoom-in" data-aos-delay="100">
+                                                <div data-aos="zoom-in" data-aos-delay="70">
                                                     <div class="icon-box">
                                                         <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                                                        <h4><a href="">Vous n'avez aucun n'abonnement en cours</a></h4>
+                                                        <h4>Vous n'avez aucun n'abonnement en cours</h4>
                                                         <p>Prenez un abonnement pour ne rater aucuns des nouveaux séries et
                                                             films en
                                                             {{ date('Y') }}</p>

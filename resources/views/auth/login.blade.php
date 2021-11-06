@@ -1,9 +1,13 @@
 @extends('layouts.app')
-
+@section('nav')
+    <li><a class="nav-link scrollto" href="/#about">A propos</a></li>
+    <li><a class="nav-link scrollto" href="/#services">Services</a></li>
+    <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
+@endsection
 @section('content')
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
+    <section id="hero" style="height: 100%" class="d-flex align-items-center">
 
         <div class="container">
             <div class="row justify-content-center">
@@ -17,7 +21,7 @@
                             @csrf
                             <h2 class="text-danger">Connectez-vous</h2>
                             @error('login_error')
-                                <div class="shadow alert alert-danger">
+                                <div class="shadow-sm text-center alert alert-danger">
                                     Email ou mot de passe incorrecte.
                                 </div>
                             @enderror
@@ -31,12 +35,10 @@
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="password">Mot de passe</label>
-                                    <input type="password" autocomplete="current-password" name="password"
-                                        class="form-control" id="password" required>
+                                    <input type="password" name="password" class="form-control" id="password" required>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center mb-2">
                                     <div>
                                         <label class="form-check-label" for="remember">Se souvenir de moi</label>
                                     </div>
@@ -45,15 +47,18 @@
                                             {{ old('remember') ? 'checked' : '' }}>
 
                                     </div>
-
                                 </div>
+                            <div class="mb-3">
+                                <button type="submit">Se connecter</button>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
+
                                 <div>
-                                    <button type="submit">Se connecter</button>
+                                    <a href="{{ route('client.registerForm') }}"><u>Créer mon compte</u></a>
                                 </div>
                                 <div>
-                                    <a href="{{ route("client.registerForm") }}">Créer mon compte</a>
+                                    <a  href="{{ route('forgotPasswordForm') }}"><u>Mot de passe
+                                            oublié?</u></a>
                                 </div>
                             </div>
                         </form>

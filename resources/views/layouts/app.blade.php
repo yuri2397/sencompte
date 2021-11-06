@@ -18,8 +18,6 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
-
-
     <!-- Vendor CSS Files -->
     <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +30,6 @@
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">
-    @yield('nav')
 </head>
 
 <body>
@@ -44,25 +41,26 @@
             <nav id="navbar" class="navbar ">
                 <ul>
                     @yield('nav')
-                    @if(Auth::guard('admin')->check() || Auth::guard('client')->check())
+                    @if (Auth::guard('admin')->check() || Auth::guard('client')->check())
                         <li>
-                            <a class="nav-link" href="@if (Auth::guard('admin')->check())
+                            <a class="nav-link" href=" @if (Auth::guard('admin')->check())
                                 /admin
                             @else
                                 /client
-                            @endif">
+                                @endif">
                                 <img src="/assets/img/avatar.png" class="rounded avatar" alt="...">
                             </a>
                         </li>
 
                         <li>
-                            <a class="getstarted scrollto" role="button"
+                            <a class="getstarted scrollto shadow-lg" role="button"
                                 onclick="event.preventDefault();
                                                                              document.getElementById('logout-form').submit();">
                                 {{ __('Déconnection') }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
                                 @csrf
                             </form>
                         </li>
@@ -78,7 +76,6 @@
     @yield('content')
 
     <!-- Vendor JS Files -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/assets/vendor/aos/aos.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -88,8 +85,8 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
-
     @yield('script')
+
 </body>
 
 </html>

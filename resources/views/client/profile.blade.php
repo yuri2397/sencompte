@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('nav')
-@toastr_css
+    @toastr_css
 
 @endsection
 @section('content')
@@ -15,26 +15,30 @@
                         <div class="row">
                             <div class="col-lg-12 d-flex flex-column justify-content-center align-items-stretch ">
 
-                                <div class="content">
-                                    <h3>Heureux de vous revoir <strong>{{ $name }}</strong>
+                                <div class="content align-items-center">
+                                    <h3>Heureux de vous revoir <strong><a
+                                                href="{{ route('client.params') }}">{{ $user->first_name }} <i
+                                                    class="bi bi-box-arrow-in-right"></i></a></strong>
                                     </h3>
                                     <p>
                                         De nouveaux séries et films uniquement pour vous 🌟
                                     </p>
-                                    <div class="mb-3">
-                                        <a type="button" href="{{ route('client.abonnement') }}"
-                                            role="button" class="btn btn-primary shadow">Ajouter un abonnement à 2 000 FCFA 🎬</a>
-                                    </div>
+                                    @if ($user->email_verified_at != null)
+                                        <div class="mb-3">
+                                            <a type="button" href="{{ route('client.abonnement') }}"
+                                                class="btn btn-primary shadow">Ajouter un abonnement à 2 000 FCFA 🎬</a>
+                                        </div>
+                                    @else
+                                        <div class="my-5 alert alert-danger shadow-sm">
+                                            <span >Merci de verifier votre adresse
+                                                email pour pouvoir ajouter un abonnement. </span>
+                                        </div>
+                                    @endif
                                 </div>
                                 @if (isset($profiles) && count($profiles) != 0)
-                                    <div class="content">
-                                        <h3><strong>Vous avez {{ count($profiles) }} en cours</strong>
-                                        </h3>
-                                    </div>
-
-                                    <ul class="row align-items-center justify-content-center my-2">
+                                    <ul class="row my-2">
                                         @forelse ($profiles as $profile)
-                                            <div class="card shadow-sm col-sm-4 col-xs-12 col-md-3 m-2">
+                                            <div class="card shadow-sm col-auto m-2">
                                                 <img src="assets/img/netflix.png" class="card-img-top" alt="...">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Netflix Premium HD</h5>
@@ -43,7 +47,7 @@
                                                     </p>
                                                     <div class="text-center mt-2">
                                                         <a type="button"
-                                                            href="{{ route('client.show', ['id' => $profile->id]) }}"
+                                                            href="{{ route('client.show', ['id' => $profile->hash]) }}"
                                                             role="button" class="btn btn-primary shadow">Voir plus</a>
                                                     </div>
                                                 </div>
@@ -65,7 +69,6 @@
                                     </div>
                                 @endif
 
-
                             </div>
 
                         </div>
@@ -77,8 +80,8 @@
     </section>
 @endsection
 
-@section("script")
-@jquery
-@toastr_js
-@toastr_render
+@section('script')
+    @jquery
+    @toastr_js
+    @toastr_render
 @endsection

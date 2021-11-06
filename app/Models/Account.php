@@ -9,6 +9,8 @@ class Account extends Model
 {
     use HasFactory;
 
+    protected $fillable = ["*"];
+
     public function profiles()
     {
         return $this->hasMany(Profile::class);
