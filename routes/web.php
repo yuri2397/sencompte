@@ -38,6 +38,9 @@ Route::post('logout', [LoginController::class, 'logout'])
 
 Route::get('/register', [RegisterController::class, 'showClientRegisterForm'])
     ->name("client.registerForm");
+
+Route::post('/register', [RegisterController::class, 'createClient'])
+    ->name("client.register");
 /**
  * PASSWORD CONTROLLER
  */
@@ -93,5 +96,9 @@ Route::view("pay-cancel", 'client.pay-cancel');
 
 
 Route::get('/test', function () {
-    return Mail::to(env('MAIL_USERNAME'))->send(new ManqueDeProfil());
+    return DB::table('payments')
+    ->whereYear('created_at', date('Y'))
+    ->whereMonth('created_at', date('n'))
+    ->select("amount")
+    ->sum("amount");
 });

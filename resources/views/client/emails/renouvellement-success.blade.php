@@ -10,9 +10,10 @@ Merci de récupérer les indentifiants de connexion.
 - Code pin : <strong>{{ $profile->pin }}</strong>
 - N° du profil : <strong>{{ $profile->number }}</strong>
 
-# {{ \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $profile->date_end)->diffInDays(now()) }} jours avant la fin d'abonnement
+<div class="alert alert-danger">
+    # {{ \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $profile->date_end)->diffInDays(now()) }} jours avant la fin d'abonnement
+</div>
 
-<br>
 Merci, et bonne visionnage sur <a href="www.netflix.com">Netflix Premium HD</a><br>
 {{ config('app.name') }}
 @endcomponent

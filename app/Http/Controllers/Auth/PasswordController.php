@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use App\Models\User;
 
 use App\Models\Client;
@@ -29,13 +30,14 @@ class PasswordController extends Controller
             ]);
         } else {
             Mail::to($user->email)->send(new ForgotPassword($user));
+            return back();
         }
     }
 
     public function newPasswordForm($token, $email)
     {
         $data = PasswordReset::whereEmail($email)->whereToken($token)->first();
-        if($data == null){
+        if ($data == null) {
             return back();
         }
         return view("auth.new-password")->with([
@@ -46,13 +48,14 @@ class PasswordController extends Controller
 
     public function newPassword(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             "token" => "required|exists:password_resets,token",
             "email" => "required|exists:password_resets,email",
-            "password" => "required|min:6|confirmed"
+            'password' => 'required|confirmed|min:6',
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return back()->withErrors($request->all());
         }
 

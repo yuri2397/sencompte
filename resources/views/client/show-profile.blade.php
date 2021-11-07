@@ -22,11 +22,12 @@
                                                         </div>
                                                         <div class="col-md-5">
                                                             <h1 class="text-primary">Netflix Premium HD</h1>
-                                                            <h4 class="mb-2 alert alert-danger"><span class="date_end">{{ $profile->date_end }}</span> jours avant la fin d'abonnement</h4>
-                                                            <p class="mb-1">Date d'abonnement : <b>{{ date('d-m-Y', strtotime($profile->updated_at)) }}</b></p>
+
+                                                            <h4 class="mb-2 alert alert-danger"><span>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $profile->date_end)->diffInDays(now()) }}</span> jours avant la fin d'abonnement</h4>
+                                                            <p class="mb-1">Date d'abonnement : <b>{{ date('d-m-Y H:s:i', strtotime($profile->updated_at)) }}</b></p>
                                                             <p class="mb-1">
                                                                 Date d'expiration :
-                                                                <b >{{ date('d-m-Y', strtotime($profile->date_end)) }}</b>
+                                                                <b >{{ date('d-m-Y H:s:i', strtotime($profile->date_end)) }}</b>
                                                             </p>
                                                         </div>
                                                         <div class="col-md-4 align-self-start">
@@ -87,5 +88,4 @@
 @endsection
 
 @section('script')
-    <script src="/js/app.js"></script>
 @endsection

@@ -35,7 +35,6 @@ function dayDiff(d1, d2) {
 (function() {
     let dates = [].slice.call(document.getElementsByClassName("date_end"));
     dates.forEach(e => {
-        console.log(e.innerHTML);
         e.innerHTML = this.dayDiff(new Date(e.innerHTML), new Date());
     })
 })();

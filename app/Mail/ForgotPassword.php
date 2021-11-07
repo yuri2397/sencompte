@@ -36,7 +36,7 @@ class ForgotPassword extends Mailable
      */
     public function build()
     {
-        $url = URL::to('/') . "/new-password/" . $this->token . "/" . $this->user->email;
+        $url = URL::to('/') . "/new-password/" . $this->token->token . "/" . $this->user->email;
         return $this->subject("Demande de réinitialisation de mot de passe")
             ->markdown("emails.forgot-password")
             ->with([

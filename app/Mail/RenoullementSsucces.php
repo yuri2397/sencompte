@@ -30,7 +30,7 @@ class RenoullementSsucces extends Mailable
     public function build()
     {
         return $this->subject("Renouvellement d'un abonnement")
-        ->markdown("client.emails.renouvellement-success")
+        ->markdown("emails.client.renouvellement-success")
         ->with([
             "client" => $this->client,
             "profile" => $this->profile

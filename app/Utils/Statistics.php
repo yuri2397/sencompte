@@ -14,7 +14,7 @@ trait Statistics{
         $content_row['accounts'] = $this->accountNumber();
         $content_row['profiles'] = $this->profiles();
         $content_row['clients'] = $this->clients();
-        $content_row['free_profiles'] = $this->freeProfiles($content_row['profiles']);
+        $content_row['free_profiles'] = $this->freeProfiles();
 
         return $content_row;
     }
@@ -36,11 +36,10 @@ trait Statistics{
     private function amountStat()
     {
         return  DB::table('payments')
-            ->whereYear('created_at', date('Y'))
-            ->whereMonth('created_at', date('n') - 1)
-            ->select("amount")
-            ->get()
-            ->sum();
+        ->whereYear('created_at', date('Y'))
+        ->whereMonth('created_at', date('n'))
+        ->select("amount")
+        ->sum("amount");
     }
 
     private function accountNumber(){
@@ -49,7 +48,7 @@ trait Statistics{
 
     private function profiles()
     {
-        return count(Profile::all());
+        return count(Profile::whereClientId(null)->get());
     }
 
     private function clients()
@@ -57,8 +56,9 @@ trait Statistics{
         return count(Client::all());
     }
 
-    private function freeProfiles($all)
+    private function freeProfiles()
     {
+        $all = count(Profile::all());
         if($all == 0) return 0;
         return  count(Profile::whereClientId(null)->get()) * 100 / $all;
     }

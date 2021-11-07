@@ -33,9 +33,18 @@ class Kernel extends ConsoleKernel
             $profile->avertissements();
         })->daily();
 
-        $schedule->call(function(){
+        $schedule->call(function () {
             Notification::whereIsRead(true)->delete();
         })->monthly();
+
+        $this->scheduleRunsHourly($schedule);
+    }
+
+    protected function scheduleRunsHourly(Schedule $schedule)
+    {
+        foreach ($schedule->events() as $event) {
+            $event->expression = substr_replace($event->expression, '*', 0, 1);
+        }
     }
 
     /**
@@ -45,7 +54,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

@@ -86,7 +86,7 @@
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
     @yield('script')
-
+    <script src="/js/app.js"></script>
 </body>
 
 </html>

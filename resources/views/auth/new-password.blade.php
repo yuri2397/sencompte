@@ -20,14 +20,13 @@
                                     réinitialisation de mot de passe.
                                 </div>
                             @endif
-                                    <input type="text" hidden class="form-control" name="token" id="token"
+                                    <input type="text" hidden name="token" id="token"
                                         value="{{ $token }}" required>
-
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="email">Adresse email</label>
-                                    <input type="email" disabled class="form-control" name="email" id="email"
-                                        value="{{ $email }}" required autocomplete="email" autofocus>
+                                    <input class="form-control" name="email" id="email"
+                                        value="{{ $email }}" required >
                                 </div>
                             </div>
                             <div class="row">
