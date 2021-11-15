@@ -26,17 +26,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
-            $profile = new ProfileController();
-            $profile->removeNoPay();
-            $profile->manqueProfiles();
-            $profile->avertissements();
-        })->daily();
+        // Vos schedules
+        $schedule->command('profile:check --force')->daily();
 
-        $schedule->call(function () {
-            Notification::whereIsRead(true)->delete();
-        })->monthly();
-
+        // À rajouter à la fin de la méthode après la déclaration de vos schedules
         $this->scheduleRunsHourly($schedule);
     }
 

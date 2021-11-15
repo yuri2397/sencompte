@@ -6,6 +6,7 @@ use App\Utils\UserAuth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -23,10 +24,14 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
+
+        if($validator->fails()){
+            return back()->withErrors($request->all());
+        }
 
         $credentials = ['email' => $request->email, 'password' => $request->password];
 
@@ -49,6 +54,6 @@ class LoginController extends Controller
         Auth::logout();
         Auth::guard('admin')->logout();
         Auth::guard('client')->logout();
-        return redirect('/');
+        return redirect()->route("login");
     }
 }

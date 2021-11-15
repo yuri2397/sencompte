@@ -30,6 +30,8 @@
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">
+    @toastr_css
+
 </head>
 
 <body>
@@ -86,7 +88,8 @@
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
     @yield('script')
-    <script src="/js/app.js"></script>
+    @toastr_js
+    @toastr_render
 </body>
 
 </html>

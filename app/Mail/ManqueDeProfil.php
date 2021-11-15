@@ -19,7 +19,6 @@ class ManqueDeProfil extends Mailable
      */
     public function __construct()
     {
-        //
     }
 
     /**

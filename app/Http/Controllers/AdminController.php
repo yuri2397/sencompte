@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Utils\Utils;
 use App\Models\Client;
 use App\Models\Account;
 use App\Models\Message;
+use App\Models\Payment;
 use App\Models\Profile;
 use App\Utils\Statistics;
 use Illuminate\Support\Str;
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use App\Models\PayementNotConf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NouveauAbonnementSucces;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -103,12 +108,36 @@ class AdminController extends Controller
             $profile->date_end = date(now());
             $hash = '';
             while (true) {
-                $hash = Str::random(30);
+                $hash = Str::random(64);
                 if (Profile::whereHash($hash)->first() == null) break;
             }
             $profile->hash = $hash;
             $profile->client_id = null;
             $profile->save();
+        }
+
+        $not_confs = PayementNotConf::all();
+
+        if($not_confs){
+            foreach ($not_confs as $not_conf) {
+
+                $client = Client::find($not_conf->client_id);
+                $profile = Profile::whereClientId(null)->first();
+
+                if($profile){
+                    $profile->date_end = Carbon::now()->addMonth();
+                    $profile->client_id = $client->id;
+                    $profile->save();
+                    DB::table("payments")->where("date",$not_conf->date)->whereClientId($client->id)->update([
+                        "profile_id" => $profile->id
+                    ]);
+                    Mail::to($client->email)->send(new NouveauAbonnementSucces($client, $profile));
+                    $not_conf->delete();
+                }
+                else{
+                    break;
+                }
+            }
         }
 
         toastr()->success('Nouveau compte ajouté avec succés', "Ajoute d'un compte");

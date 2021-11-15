@@ -29,7 +29,7 @@
                                 <div class="form-group col-md-12">
                                     <label for="email">Adresse email</label>
                                     <input type="email" class="form-control" name="email" id="email"
-                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        value="{{ old('email') }}" required>
                                 </div>
                             </div>
                             <div class="row">

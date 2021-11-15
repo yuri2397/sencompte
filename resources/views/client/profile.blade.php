@@ -30,8 +30,8 @@
                                         </div>
                                     @else
                                         <div class="my-5 alert alert-danger shadow-sm">
-                                            <span >Merci de verifier votre adresse
-                                                email pour pouvoir ajouter un abonnement. </span>
+                                            <span >Merci de vérifier votre adresse
+                                                email pour pouvoir ajouter un nouveau abonnement. </span>
                                         </div>
                                     @endif
                                 </div>
@@ -62,7 +62,7 @@
                                             <div class="icon-box">
                                                 <div class="icon"><i class="bx bxl-dribbble"></i></div>
                                                 <h4>Vous n'avez aucun n'abonnement en cours</h4>
-                                                <p>Prenez un abonnement pour ne rater aucuns des nouveaux séries et films en
+                                                <p>Prenez un abonnement pour ne rater aucun des nouveaux séries et films en
                                                     {{ date('Y') }}</p>
                                             </div>
                                         </div>

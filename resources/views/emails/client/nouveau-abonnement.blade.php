@@ -14,6 +14,6 @@ Merci de récupérer les indentifiants de connexion.
     Veuillez garder ces informations dans un lieu sûr.
 </div>
 
-Merci, et bonne visionnage sur <a href="www.netflix.com">Netflix Premium HD</a><br>
+Merci, et bon visionnage sur <a href="www.netflix.com">Netflix Premium HD</a><br>
 {{ config('app.name') }}
 @endcomponent

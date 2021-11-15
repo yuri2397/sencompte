@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                     data-aos="fade-up" data-aos-delay="200">
-                    <h1 style="font-size: 60px"><span>Dépensez moins,</span><br><span>profitez plus !</span></h1>
+                    <h1 style="font-size: 60px; letter-spacing: 3px">Dépensez moins, profitez plus !</h1>
                     <br>
                     <h2>Regardez des millions de films et séries.
                     </h2>
@@ -58,16 +58,8 @@
                                 tout un chacun de profiter de la plateforme Netflix afin de suivre ses films et séries
                                 préférés à bas prix .
                             </h3>
-                            <p class="text-danger">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                            </p>
                         </div>
                     </div>
-
-                    <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
-                        style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">
-                        &nbsp;</div>
                 </div>
 
             </div>
@@ -80,9 +72,6 @@
                 <div class="section-title">
                     <h2>Pourquoi
                         nous choisir ?</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
-                        sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                        ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                 </div>
 
                 <div class="row">
@@ -90,7 +79,6 @@
                         <div class="icon-box">
                             <div class="icon"><i class="bx bxl-dribbble"></i></div>
                             <h4><a href="">DES TARIFS IMBATTABLES</a></h4>
-                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
                         </div>
                     </div>
 
@@ -99,7 +87,6 @@
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-file"></i></div>
                             <h4><a href="">UN SERVICES CLIENTS TRÈS RÉACTIFS</a></h4>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
                         </div>
                     </div>
 
@@ -109,7 +96,6 @@
                             <div class="icon"><i class="bx bx-tachometer"></i></div>
                             <h4><a href="">DES COMPTES DE QUALITÉ PREMIUM À VOTRE DISPOSITION
                                 </a></h4>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
                         </div>
                     </div>
 
@@ -119,7 +105,6 @@
                             <div class="icon"><i class="bx bx-layer"></i></div>
                             <h4><a href="">UN SUIVI CONTINU DE VOS COMPTES
                                 </a></h4>
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
                         </div>
                     </div>
 
@@ -135,45 +120,38 @@
                 <div class="section-title">
                     <h2>LES
                         CHIFFRES</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
-                        sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                        ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                 </div>
                 <div class="row">
 
 
                     <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
                         <div class="box featured">
+
+                            <h4 class="h1">3</h4>
                             <h3>
                                 ANS
-D'EXISTENCE
+                                D'EXISTENCE
                             </h3>
-                            <h4>3</h4>
-
-                            <a href="#" class="buy-btn">Créer votre compte</a>
                         </div>
                     </div>
 
                     <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
                         <div class="box featured">
-                            <h3>
+
+                            <h4>{{ $clients_number }}</h4><h3>
                                 CLIENTS SATISFAITS
                             </h3>
-                            <h4>{{ $clients_number}}</h4>
-
-                            <a href="#" class="buy-btn">Créer votre compte</a>
                         </div>
                     </div>
 
                     <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
                         <div class="box featured">
+
+                            <h4>{{ $profiles_number }}</h4>
                             <h3>
                                 PROFIL
                                 CRÉÉS
                             </h3>
-                            <h4>{{ $profiles_number }}</h4>
-
-                            <a href="#" class="buy-btn">Créer votre compte</a>
                         </div>
                     </div>
                 </div>

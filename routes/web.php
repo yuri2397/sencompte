@@ -84,7 +84,7 @@ Route::prefix('client')->middleware(['auth:client'])->group(function () {
 
     Route::get('/abonnement', [ClientController::class, 'abonnement'])
         ->name("client.abonnement");
-    Route::get('payement/{id}', [ClientController::class, 'renouvellement'])->name('renouvellement');
+    Route::post('payement', [ClientController::class, 'renouvellement'])->name('renouvellement');
     Route::post('/change-password', [ClientController::class, "changerPassword"]);
     Route::get('confirmation/{token}/{email}/', [ClientController::class, 'confirmationForm'])->withoutMiddleware("auth:client");
     Route::get('params/', [ClientController::class, 'params'])->name("client.params");

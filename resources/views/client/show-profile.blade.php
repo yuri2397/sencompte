@@ -18,43 +18,49 @@
                                                 <div class="card-body">
                                                     <div class="row align-items-center">
                                                         <div class="col-md-3">
-                                                            <img src="/img/netflix_welcome.png" class="card-img-top" alt="IMAGE DE NETFLIX">
+                                                            <img src="/img/netflix_welcome.png" class="card-img-top"
+                                                                alt="IMAGE DE NETFLIX">
                                                         </div>
                                                         <div class="col-md-5">
                                                             <h1 class="text-primary">Netflix Premium HD</h1>
 
-                                                            <h4 class="mb-2 alert alert-danger"><span>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $profile->date_end)->diffInDays(now()) }}</span> jours avant la fin d'abonnement</h4>
-                                                            <p class="mb-1">Date d'abonnement : <b>{{ date('d-m-Y H:s:i', strtotime($profile->updated_at)) }}</b></p>
-                                                            <p class="mb-1">
+                                                            <h4 class="mb-2 alert alert-danger">
+                                                                <span>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $profile->date_end)->diffInDays(now()) }}</span>
+                                                                jours avant la fin d'abonnement
+                                                            </h4>
+                                                            <h5 class="my-3">
                                                                 Date d'expiration :
-                                                                <b >{{ date('d-m-Y H:s:i', strtotime($profile->date_end)) }}</b>
-                                                            </p>
+                                                                <b>{{ date('d / m / Y', strtotime($profile->date_end)) }}</b>
+                                                            </h5>
                                                         </div>
                                                         <div class="col-md-4 align-self-start">
                                                             <h3 class="text-primary"><a>Détails du compte</a></h3>
 
-                                                                <div class="form-group mt-3">
-                                                                    <label >Numéro de
-                                                                        profil</label>
-                                                                    <input type="text" class="form-control" disabled
+                                                            <div class="form-group mt-3">
+                                                                <label>Numéro de
+                                                                    profil</label>
+                                                                <input type="text" class="form-control" disabled
                                                                     value="{{ $profile->number }}">
-                                                                </div>
-                                                                <div class="form-group my-2">
-                                                                    <label  >Adresse Email</label>
-                                                                    <input type="text" class="form-control" disabled
+                                                            </div>
+                                                            <div class="form-group my-2">
+                                                                <label>Adresse Email</label>
+                                                                <input type="text" class="form-control" disabled
                                                                     value="{{ $profile->account->email }}">
-                                                                </div>
-                                                                <div class="form-group my-2">
-                                                                    <label  >Mot de passe</label>
-                                                                    <input type="text" class="form-control" disabled
+                                                            </div>
+                                                            <div class="form-group my-2">
+                                                                <label>Mot de passe</label>
+                                                                <input type="text" class="form-control" disabled
                                                                     value="{{ $profile->account->password }}">
-                                                                </div>
-                                                                <div class="form-group mt-3">
-                                                                    <label  >Code Pin</label>
-                                                                    <input type="text" class="form-control" disabled
-                                                                        value="{{ $profile->pin }}">
-                                                                </div>
-                                                                <a href="{{ route("renouvellement", ['id' => $profile->hash]) }}" class="mt-3 shadow btn btn-primary btn-block">Renouvellement (+30 jours)</a>
+                                                            </div>
+                                                            <div class="form-group mt-3">
+                                                                <label>Code Pin</label>
+                                                                <input type="text" class="form-control" disabled
+                                                                    value="{{ $profile->pin }}">
+                                                            </div>
+                                                            <button class="mt-2 shadow btn btn-primary btn-block"
+                                                                data-toggle="modal" role="button"
+                                                                data-target="#addMonthModal">Renouveller
+                                                                votre abonnement</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -84,8 +90,59 @@
                 </div>
             </div>
         </div>
+
+        <!-- Renouvellement Modal-->
+        <div class="modal fade" id="addMonthModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Renouveller
+                            votre abonnement
+                        </h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form id="add-month-form" action="/client/payement" method="POST">
+                            @csrf
+
+                            <input style="display: none;" type="text" name="hash" id="hash" value="{{ $profile->hash }}" required>
+
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="nombre_mois">Nombre de mois (1 à 12) </label>
+                                    <input onchange="onNumberMonthChanger(this)" type="number" min="1" max="12"
+                                        class="form-control" name="nombre_mois" id="nombre_mois" value="1" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="montant_a_payer">Montant à payer</label>
+                                    <input type="text" disabled class="form-control" name="montant_a_payer"
+                                        id="montant_a_payer" value="2000 FCFA">
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                        <a class="btn btn-primary" onclick="event.preventDefault();
+                                    document.getElementById('add-month-form').submit();">{{ __('Renouveller') }}</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 @endsection
 
 @section('script')
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/app.js"></script>
 @endsection

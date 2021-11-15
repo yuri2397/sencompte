@@ -20,7 +20,7 @@
                         <form action="/register" method="post" role="form" class="php-email-form">
                             @csrf
 
-                            <h2 class="text-danger mb-2">Créer un compte</h2>
+                            <h2 class="text-danger mb-5">Créer un compte</h2>
                             @if ($errors->any())
                                 <div class="alert shadow-sm alert-danger">
                                     <ul>
@@ -32,7 +32,7 @@
                             @endif
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="first_name">Prenoms</label>
+                                    <label for="first_name">Prenom</label>
                                     <input type="text" name="first_name" value="{{ old('first_name') }}"
                                         class="form-control @error('first_name') is-invalid @enderror" id="first_name"
                                         required>

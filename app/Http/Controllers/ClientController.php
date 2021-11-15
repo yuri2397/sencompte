@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AbonnementNotConf;
 use Carbon\Carbon;
 use App\Models\Client;
 use App\Utils\PayTech;
@@ -79,24 +80,36 @@ class ClientController extends Controller
         }
     }
 
-    public function renouvellement($hash)
+    public function renouvellement(Request $request)
     {
-        $profile = Profile::whereHash($hash)->first();
+        $validator = Validator::make($request->all(), [
+            "hash" => "required|exists:profiles,hash",
+            "nombre_mois" => "required|numeric|min:1|max:12",
+        ]);
+
+        if($validator->fails()){
+            toastr()->error("Vérifier les inforomations saisies.");
+            return back();
+        }
+
+        $profile = Profile::whereHash($request->hash)->first();
 
         if ($profile) {
             $user = Client::find(auth()->id());
             if ($user == null) redirect()->route("login");
             $ref = $user->email . '_' . now();
+            $amount = $request->nombre_mois * $this->price;
             $customfield = json_encode([
                 'email' => $user->email,
                 'client_id' => $user->id,
+                'months' => $request->nombre_mois,
                 'profile_id' => $profile->id,
-                'amount' => $this->price,
+                'amount' => $amount,
                 'ref' => $ref,
             ]);
 
             $data = [
-                'item_price' => $this->price,
+                'item_price' => $amount,
                 "currency"     => "xof",
                 "ref_command" => $ref,
                 'item_name' => $this->command_name,
@@ -131,6 +144,8 @@ class ClientController extends Controller
                 $item_price = $request->item_price;
                 $custom_field = json_decode($request->custom_field, true);
                 $client = Client::find($custom_field['client_id']);
+                $dispo = true;
+                $now = date(now());
 
                 DB::beginTransaction();
 
@@ -138,31 +153,39 @@ class ClientController extends Controller
                 if ($profile == null) {
                     $notConf = new PayementNotConf();
                     $notConf->amount = $item_price;
-                    $notConf->date = date(now());
+                    $notConf->date = $now;
                     $notConf->client_id = $client->id;
                     $notConf->save();
+                    try {
+                        $dispo = false;
+                        Mail::to($client->email)->send(new AbonnementNotConf($client));
+                    } catch (\Throwable $th) {
+                        DB::commit();
+                    }
                 } else {
                     $profile->date_end = Carbon::now()->addMonth();
                     $profile->client_id = $client->id;
                     $profile->save();
                 }
 
-                $pendding->delete();
-
                 $payment = new Payment();
                 $payment->amount = $item_price;
-                $payment->date = date(now());
+                $payment->date = $now;
                 $payment->via = $via;
-                $payment->profile_id = $profile->id;
+                $payment->profile_id = $profile != null ? $profile->id : null;
                 $payment->client_id = $client->id;
                 $payment->phone_number = $client_phone;
                 $payment->save();
 
+                $pendding->delete();
+
                 DB::commit();
 
                 try {
+                    if($dispo)
                     Mail::to($client->email)->send(new NouveauAbonnementSucces($client, $profile));
                 } catch (\Throwable $th) {
+                    DB::commit();
                 }
                 return response()->json([], 200);
             }
@@ -190,19 +213,7 @@ class ClientController extends Controller
                 $custom_field = json_decode($request->custom_field, true);
                 $client = Client::find($custom_field['client_id']);
                 $profile = Profile::find($custom_field['profile_id']);
-                DB::beginTransaction();
-
-                $diff = Carbon::createFromFormat('Y-m-d H:s:i', $profile->date_end)->diffInDays(now()) + 1;
-
-                if ($diff > 0) {
-                    $profile->date_end = Carbon::now()->addMonth()->addDays($diff);
-                } else {
-                    $profile->date_end = Carbon::now()->addMonth();
-                }
-                $profile->client_id = $client->id;
-                $profile->save();
-
-                $pendding->delete();
+                $months = $custom_field['months'];
 
                 $payment = new Payment();
                 $payment->amount = $item_price;
@@ -213,13 +224,26 @@ class ClientController extends Controller
                 $payment->phone_number = $client_phone;
                 $payment->save();
 
+                DB::beginTransaction();
+
+                    $diff = Carbon::createFromFormat('Y-m-d H:s:i', $profile->date_end)->diffInDays(now()) + 1;
+
+                    if ($diff > 0) {
+                        $profile->date_end = Carbon::now()->addMonths($months)->addDays($diff);
+                    } else {
+                        $profile->date_end = Carbon::now()->addMonths($months);
+                    }
+                    $profile->client_id = $client->id;
+                    $profile->save();
+
+                    $pendding->delete();
+
                 DB::commit();
 
                 try {
                     Mail::to($client->email)->send(new RenoullementSsucces($client, $profile));
                 } catch (\Throwable $th) {
                 }
-
                 return response()->json([], 200);
             }
         } else {

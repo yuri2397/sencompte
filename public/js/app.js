@@ -44,3 +44,12 @@ function submitUpdateForm() {
     form.action = "/admin/update-account/" + id;
     form.submit();
 }
+
+function onNumberMonthChanger(input) {
+    if (input.value <= 0)
+        input.value = 1;
+    else if (input.value > 12)
+        input.value = 12;
+    let amount = document.getElementById("montant_a_payer");
+    amount.value = (input.value * 2000) + " FCFA";
+}
