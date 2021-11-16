@@ -37,7 +37,7 @@ trait Statistics{
     {
         return  DB::table('payments')
         ->whereYear('created_at', date('Y'))
-        ->whereMonth('created_at', date('n'))
+        ->whereMonth('created_at', date('n') - 1)
         ->select("amount")
         ->sum("amount");
     }

@@ -54,7 +54,6 @@ class AdminController extends Controller
     {
         $accounts = Account::all();
         $this->initNav();
-
         collect($accounts)->map(function ($account) {
             $account->profiles = $account->profiles()->whereClientId(null)->get();
         });
@@ -82,6 +81,43 @@ class AdminController extends Controller
         $this->initNav();
 
         return view('admin.add-account')->with([
+            "admin" => $this->admin,
+            "notifications" => $this->notifications,
+            "messages" => $this->messages
+        ]);
+    }
+
+    public function notifications()
+    {
+        $this->initNav();
+        return view("admin.notifications")->with([
+            "admin" => $this->admin,
+            "notifications" => $this->notifications,
+            "messages" => $this->messages
+        ]);
+    }
+
+
+    public function notificationDelete($id)
+    {
+        Notification::find($id)->delete();
+        toastr("Notification supprimé avec succès.");
+        return $this->notifications();
+    }
+
+
+    public function messageDelete($id)
+    {
+        Message::find($id)->delete();
+        toastr("Message supprimé avec succès.");
+        return $this->notifications();
+    }
+
+
+    public function messages()
+    {
+        $this->initNav();
+        return view("admin.messages")->with([
             "admin" => $this->admin,
             "notifications" => $this->notifications,
             "messages" => $this->messages
@@ -241,12 +277,12 @@ class AdminController extends Controller
         if($admin && Hash::check($request->password, $admin->password)){
             $admin->password = bcrypt($request->new_password);
             $admin->save();
-            toastr()->success("Mot de passe modifier avec succès.");
-            return back(301);
+            toastr("Mot de passe modifier avec succès.");
+            return back();
         }
         else{
-            toastr()->success("Le mot de passe saisie est invalide.");
-            return back(301);
+            toastr("Le mot de passe saisie est invalide.");
+            return back();
         }
     }
 }

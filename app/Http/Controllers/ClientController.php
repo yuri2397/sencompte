@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NouveauAbonnementSucces;
+use App\Models\PasswordReset;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
@@ -255,14 +256,13 @@ class ClientController extends Controller
 
     public function confirmationForm($token, $email)
     {
-        $datas = DB::table('password_resets')->whereEmail($email)->whereToken($token)->first();
+        $datas = PasswordReset::whereEmail($email)->whereToken($token)->first();
         if ($datas) {
 
             $client = Client::whereEmail($datas->email)->first();
             $client->email_verified_at = date(now());
             $client->save();
-            $datas->delete();
-
+            DB::delete('delete from password_resets where email = ? and token = ?', [$email, $token]);
             return view("client.email-verification-success");
         } else {
             return view("errors.email-verification-error");
@@ -292,12 +292,12 @@ class ClientController extends Controller
         if ($client && Hash::check($request->password, $client->password)) {
             $client->password = bcrypt($request->new_password);
             $client->save();
-            toastr()->success("Mot de passe modifier avec succès.");
+            toastr()->success("Mot de passe modifier avec succès.", "Notification");
             return back()->withErrors([
                 'success' => "mot de passe modifier avec succès."
             ]);
         } else {
-            toastr()->success("Le mot de passe saisie est invalide.");
+            toastr()->success("Le mot de passe saisie est invalide.", "Notification");
             return back()->withErrors([
                 'message' => "Le mot de passe courent est invalide."
             ]);

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PayementPending extends Migration
+class CreateContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class PayementPending extends Migration
      */
     public function up()
     {
-        Schema::create('payement_pendings', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->text("token")->unique();
-            $table->unsignedBigInteger("client_id")->nullable();
-            $table->foreign("client_id")->references("id")->on("clients")->onDelete('set null');
+            $table->string("email");
+            $table->text("message");
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class PayementPending extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('contacts');
     }
 }

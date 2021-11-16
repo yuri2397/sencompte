@@ -37,7 +37,7 @@ class EmailConfirmation extends Mailable
     public function build()
     {
         $url = URL::to('/') . '/client/confirmation/' . $this->token->token . '/' . $this->client->email;
-        return $this->subject('Valider votre addresse mail sur Senecompte')
+        return $this->subject('Valider votre adresse email')
             ->markdown('emails.client.confirm-email', [
                 'client' => $this->client,
                 'token' => $this->token,

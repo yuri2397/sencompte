@@ -159,10 +159,66 @@
             </div>
         </section><!-- End Pricing Section -->
 
-    </main><!-- End #main -->
+        <!-- ======= Pricing Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>CONTACTER NOUS</h2>
+                    <div>
+                        <a href="https://wa.me/221777647322?text=Je%20suis%20intéressé%20par%20votre%20abonnement%20netflix.%20Le%20prix%20svp" class="shadow card card-body btn-watch-video">
+                            <i class="bi bi-whatsapp h1"></i><span> Retrouver nous sur whatsapp</span></a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+                                <img src="/img/service-client.jpg" class="img-fluid animated" alt="">
+                            </div>
+                            <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
+                                data-aos="fade-up" data-aos-delay="200">
+                                <div class="shadow d-flex align-items-stretch contact">
+                                    <form action="/contact-us" method="post" class="php-email-form">
+                                        @csrf
+                                        @error('message')
+                                            <div class="shadow-sm text-center alert alert-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                        <div class="row p-0">
+                                            <div class="form-group col-md-12">
+                                                <label for="email">Votre adresse email</label>
+                                                <input type="email" class="form-control" name="email" id="email"
+                                                    value="{{ old('email') }}" required>
+                                            </div>
+                                        </div>
+                                        <div class="row p-0">
+                                            <div class="form-group col-md-12">
+                                                <label for="password">Votre message</label>
+                                                <textarea type="text" rows="5" name="message" class="form-control" required></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-1">
+                                            <button type="submit">Envoyer</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Pricing Section -->
+
+    </main>
 
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
 @endsection
+

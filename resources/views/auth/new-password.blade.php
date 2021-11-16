@@ -15,9 +15,12 @@
                             @csrf
                             <h2 class="text-danger">Créer un nouveau mot de passe</h2>
                             @if ($errors->any())
-                                <div class="shadow-sm text-center alert alert-danger">
-                                    Le mail qu'on vous a envoyé a expiré. Merci de faire un nouveau demande de
-                                    réinitialisation de mot de passe.
+                                <div class="alert shadow-sm alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             @endif
                                     <input type="text" hidden name="token" id="token"

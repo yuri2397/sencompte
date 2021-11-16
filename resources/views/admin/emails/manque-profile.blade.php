@@ -1,13 +1,12 @@
 @component('mail::message')
-    ## MANQUE DE PROFILS
+# Manque de profil
 
-    # La plateforme n'a aucun profil disponible. <br>
-    Merci de crée un nouveau compte netflix.
+La plateforme n'a plus de profils disponible.<br/> Merci d'ajouter de nouveaux comptes.
 
-    @component('mail::button', ['url' => $url])
-        Voir les statistiques
-    @endcomponent
+@component('mail::button', ['url' => $url,])
+Se connecter
+@endcomponent
 
-    Merci,<br>
-    {{ config('app.name') }}
+Merci, équipe téchnique<br>
+{{ config('app.name') }}
 @endcomponent

@@ -22,11 +22,11 @@
                     @if ($accounts && count($accounts) != 0)
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
-                                <tr>
+                                <tr class="text-center">
                                     <th>#ID</th>
                                     <th>Adresse email</th>
                                     <th>Mot de passe</th>
-                                    <th>Nombre de profils</th>
+                                    <th>Profils disponibles</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>

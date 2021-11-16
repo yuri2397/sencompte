@@ -3,9 +3,7 @@
 use App\Models\Client;
 use App\Models\Profile;
 use App\Mail\ManqueDeProfil;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -13,6 +11,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Models\Contact;
 
 /**
  * HOME PAGE
@@ -54,6 +53,19 @@ Route::get('/new-password/{token}/{email}', [PasswordController::class, 'newPass
     ->name("newPasswordForm");
 Route::post('/new-password', [PasswordController::class, 'newPassword'])
     ->name("newPassword");
+
+Route::post('/contact-us', function (Request $request) {
+    $request->validate([
+        "message" => "required",
+        "email" => "string|email|max:255"
+    ]);
+    $c = new Contact();
+    $c->email = $request->email;
+    $c->message = $request->message;
+    $c->save();
+    toastr("Votre message a été bien noté.");
+    return back();
+});
 /**
  * ADMIN ROUTES
  */
@@ -70,6 +82,10 @@ Route::prefix('admin')->middleware(['auth:admin', 'role:Admin'])->group(function
     Route::post('/change-password', [AdminController::class, "changerPassword"]);
 
     Route::get('clients', [AdminController::class, 'clientsPages'])->name('clientsPage');
+    Route::get('notifications', [AdminController::class, 'notifications'])->name('notifications');
+    Route::get('/notification/delete/{id}', [AdminController::class, 'notificationDelete'])->name('notifications-delete');
+    Route::get('/message/delete/{id}', [AdminController::class, 'messageDelete'])->name('message-delete');
+    Route::get('messages', [AdminController::class, 'messages'])->name('messages');
     Route::get('client-profile/{id}', [AdminController::class, 'showClientProfile'])->name('showClientProfile');
 });
 
@@ -96,9 +112,5 @@ Route::view("pay-cancel", 'client.pay-cancel');
 
 
 Route::get('/test', function () {
-    return DB::table('payments')
-    ->whereYear('created_at', date('Y'))
-    ->whereMonth('created_at', date('n'))
-    ->select("amount")
-    ->sum("amount");
+    return Mail::to("mor.diaw@univ-thies.sn")->send(new ManqueDeProfil());
 });

@@ -10,7 +10,8 @@
     <meta name="author" content="">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <!-- Favicons -->
+    <link href="/assets/img/favicon.ico" rel="icon">
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -108,6 +109,23 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNot"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-clock"></i>
+                    <span>Notifications</span>
+                </a>
+                <div id="collapseNot" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route("notifications") }}">Notifications</a>
+                        <a class="collapse-item" href="{{ route("messages") }}">Messages client</a>
+                    </div>
+                </div>
+
+            </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -219,8 +237,9 @@
                                                 <div class="font-weight-bold">
                                                     <div class="text-truncate">{{ $message->message }}</div>
                                                     <div class="small text-gray-500">
-                                                        {{ $message->client->first_name }} {{ $message->client->last_name
-                                                         }}</div>
+                                                        {{ $message->client->first_name }}
+                                                        {{ $message->client->last_name }}
+                                                    </div>
                                                 </div>
                                             </a>
                                         @else
@@ -259,7 +278,7 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                             aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="{{ route("admin.profile") }}">
+                            <a class="dropdown-item" href="{{ route('admin.profile') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profil
                             </a>
                             <div class="dropdown-divider"></div>

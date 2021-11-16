@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('nav')
     @toastr_css
-
 @endsection
 @section('content')
     <section id="hero" style="height: 100%" class="d-flex align-items-center">

@@ -26,6 +26,11 @@
                                             votre
                                             profile</a>
                                     </p>
+                                @else
+                                    <p class="lead">
+                                        <a href="/login" class="btn btn-primary btn-lg" href="Jumbo action link"
+                                            role="button">Connectez-vous</a>
+                                    </p>
                                 @endif
                             </div>
                         </div>

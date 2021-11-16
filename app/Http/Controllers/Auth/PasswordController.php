@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Mail\ForgotPassword;
 use Illuminate\Http\Request;
 use App\Models\PasswordReset;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -25,10 +26,12 @@ class PasswordController extends Controller
         if ($user == null)
             $user = User::whereEmail($request->email)->first();
         if ($user == null) {
+            toastr("Votre adresse email n'existe pas.", "error", "Notification");
             return back()->withErrors([
                 "message" => "Votre adresse email n'existe pas. "
             ]);
         } else {
+            toastr("Nous vous avons envoyé un mail de réinitialisation de mot de passe.", "success", "Notification");
             Mail::to($user->email)->send(new ForgotPassword($user));
             return back();
         }
@@ -56,7 +59,8 @@ class PasswordController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return back()->withErrors($request->all());
+            toastr("Veuillez verifier les informations saisies.", "error", "Notification");
+            return back()->withErrors($validator->errors());
         }
 
         $user = Client::whereEmail($request->email)->first();
@@ -64,6 +68,8 @@ class PasswordController extends Controller
             $user = User::whereEmail($request->email)->first();
         $user->password = bcrypt($request->password);
         $user->save();
+        DB::delete('delete from password_resets where email = ? and token = ?', [$request->email, $request->token]);
+        toastr("Modification de mot de passe succès.", "success", "Notification");
         return redirect()->route("login");
     }
 }
